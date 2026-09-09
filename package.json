@@ -1,0 +1,26 @@
+{
+  "name": "etcetera-app",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "seed": "node --experimental-websocket scripts/seed.js",
+    "reset": "node --experimental-websocket scripts/reset.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.48.1",
+    "canvas-confetti": "^1.9.4",
+    "lucide-react": "^0.475.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^5.4.14"
+  }
+}

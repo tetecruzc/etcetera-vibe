@@ -1,0 +1,102 @@
+[
+  {
+    "name": "Bolso Tenis Classic Blue",
+    "sku": "ETC-CLASSIC-BL",
+    "category": "Bolsos de Tenis",
+    "default_price": 120,
+    "cost_price": 65,
+    "image_url": "/assets/classic-blue.png",
+    "description": "Bolso premium de alta durabilidad modelo Bolso Tenis Classic Blue con compartimientos especializados y diseño exclusivo Etcetera.",
+    "is_active": true
+  },
+  {
+    "name": "Bolso Tenis Commando",
+    "sku": "ETC-COMMANDO-T",
+    "category": "Bolsos de Tenis",
+    "default_price": 125,
+    "cost_price": 65,
+    "image_url": "/assets/commando-tennis.png",
+    "description": "Bolso premium de alta durabilidad modelo Bolso Tenis Commando con compartimientos especializados y diseño exclusivo Etcetera.",
+    "is_active": true
+  },
+  {
+    "name": "Bolso Pickleball Disco",
+    "sku": "ETC-DISCO-PICK",
+    "category": "Bolsos de Pickleball",
+    "default_price": 110,
+    "cost_price": 65,
+    "image_url": "/assets/disco-pickleball.JPG",
+    "description": "Bolso premium de alta durabilidad modelo Bolso Pickleball Disco con compartimientos especializados y diseño exclusivo Etcetera.",
+    "is_active": true
+  },
+  {
+    "name": "Bolso Tenis Disco",
+    "sku": "ETC-DISCO-TENN",
+    "category": "Bolsos de Tenis",
+    "default_price": 120,
+    "cost_price": 65,
+    "image_url": "/assets/disco-tennis.png",
+    "description": "Bolso premium de alta durabilidad modelo Bolso Tenis Disco con compartimientos especializados y diseño exclusivo Etcetera.",
+    "is_active": true
+  },
+  {
+    "name": "Bolso Tenis Flamenco",
+    "sku": "ETC-FLAMENCO-T",
+    "category": "Bolsos de Tenis",
+    "default_price": 125,
+    "cost_price": 65,
+    "image_url": "/assets/flamenco-tennis.png",
+    "description": "Bolso premium de alta durabilidad modelo Bolso Tenis Flamenco con compartimientos especializados y diseño exclusivo Etcetera.",
+    "is_active": true
+  },
+  {
+    "name": "Bolso Tenis Lavanda",
+    "sku": "ETC-LAVANDA-TE",
+    "category": "Bolsos de Tenis",
+    "default_price": 130,
+    "cost_price": 65,
+    "image_url": "/assets/lavanda-tennis.png",
+    "description": "Bolso premium de alta durabilidad modelo Bolso Tenis Lavanda con compartimientos especializados y diseño exclusivo Etcetera.",
+    "is_active": true
+  },
+  {
+    "name": "Bolso Tenis Lilac Army",
+    "sku": "ETC-LILAC-ARMY",
+    "category": "Bolsos de Tenis",
+    "default_price": 120,
+    "cost_price": 65,
+    "image_url": "/assets/lilac-army-tennis.png",
+    "description": "Bolso premium de alta durabilidad modelo Bolso Tenis Lilac Army con compartimientos especializados y diseño exclusivo Etcetera.",
+    "is_active": true
+  },
+  {
+    "name": "Bolso Tenis Mocca",
+    "sku": "ETC-MOCCA-TENN",
+    "category": "Bolsos de Tenis",
+    "default_price": 125,
+    "cost_price": 65,
+    "image_url": "/assets/mocca-tennis.png",
+    "description": "Bolso premium de alta durabilidad modelo Bolso Tenis Mocca con compartimientos especializados y diseño exclusivo Etcetera.",
+    "is_active": true
+  },
+  {
+    "name": "Bolso Tenis Orange",
+    "sku": "ETC-ORANGE-TEN",
+    "category": "Bolsos de Tenis",
+    "default_price": 130,
+    "cost_price": 65,
+    "image_url": "/assets/orange-tennis.png",
+    "description": "Bolso premium de alta durabilidad modelo Bolso Tenis Orange con compartimientos especializados y diseño exclusivo Etcetera.",
+    "is_active": true
+  },
+  {
+    "name": "Bolso Tenis Panda",
+    "sku": "ETC-PANDA-TENN",
+    "category": "Bolsos de Tenis",
+    "default_price": 120,
+    "cost_price": 65,
+    "image_url": "/assets/panda-tennis.jpg",
+    "description": "Bolso premium de alta durabilidad modelo Bolso Tenis Panda con compartimientos especializados y diseño exclusivo Etcetera.",
+    "is_active": true
+  }
+]

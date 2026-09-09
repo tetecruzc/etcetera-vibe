@@ -1,0 +1,1114 @@
+[
+  {
+    "id": 1,
+    "origen": "Excel - Fila 1",
+    "cliente": "Academia de Tenis Grand Slam",
+    "fecha": null,
+    "hora": "10:12 a.m.",
+    "tipo": "Consignación",
+    "modelos": [
+      "Bolso Tenis Panda",
+      "Bolso Tenis Classic Blue",
+      "Bolso Tenis Orange"
+    ],
+    "modelos_codigos": [
+      "Modelo 7",
+      "Modelo 8",
+      "Modelo 9"
+    ],
+    "cantidad": 3,
+    "precio_unitario": 50,
+    "monto": 150,
+    "moneda": "USD",
+    "cuenta": "Efectivo Stephanie",
+    "notas": "Consignación: 3 unidades vendidas a $50 c/u"
+  },
+  {
+    "id": 2,
+    "origen": "Excel - Fila 2",
+    "cliente": "Karina Hernandez Profe tenis",
+    "fecha": null,
+    "hora": "10:14 a.m.",
+    "tipo": "Consignación",
+    "modelos": [
+      "Bolso Tenis Lilac Army",
+      "Bolso Tenis Panda",
+      "Bolso Tenis Panda"
+    ],
+    "modelos_codigos": [
+      "Modelo 3",
+      "Modelo 7",
+      "Modelo 7"
+    ],
+    "cantidad": 3,
+    "precio_unitario": 55,
+    "monto": 160,
+    "moneda": "USD",
+    "cuenta": "Efectivo Stephanie",
+    "notas": "3 bolsos vendidos a 55 c/u (1 Lilac Army y 2 Panda), debe 5 (consignación original: 10 unidades)"
+  },
+  {
+    "id": 3,
+    "origen": "Excel - Fila 3",
+    "cliente": "Yuraima Cruz",
+    "fecha": null,
+    "hora": "10:18 a.m.",
+    "tipo": "De tal",
+    "modelos": [
+      "Bolso Tenis Lavanda"
+    ],
+    "modelos_codigos": [
+      "Modelo 1"
+    ],
+    "cantidad": 1,
+    "precio_unitario": 50,
+    "monto": 50,
+    "moneda": "USD",
+    "cuenta": "Efectivo Stephanie",
+    "notas": null
+  },
+  {
+    "id": 4,
+    "origen": "Excel - Fila 4",
+    "cliente": "Carlos Marinelli",
+    "fecha": null,
+    "hora": "10:19 a.m.",
+    "tipo": "De tal",
+    "modelos": [
+      "Bolso Tenis Classic Blue"
+    ],
+    "modelos_codigos": [
+      "Modelo 8"
+    ],
+    "cantidad": 1,
+    "precio_unitario": 50,
+    "monto": 50,
+    "moneda": "USD",
+    "cuenta": "Efectivo Stephanie",
+    "notas": null
+  },
+  {
+    "id": 5,
+    "origen": "Excel - Fila 5",
+    "cliente": "Nena sucre (@nenasucre)",
+    "fecha": "3/11/2025",
+    "hora": null,
+    "tipo": "De tal",
+    "modelos": [
+      "Bolso Tenis Classic Blue"
+    ],
+    "modelos_codigos": [
+      "Modelo 8"
+    ],
+    "cantidad": 1,
+    "precio_unitario": 55,
+    "monto": 55,
+    "moneda": "USD",
+    "cuenta": null,
+    "notas": null
+  },
+  {
+    "id": 6,
+    "origen": "Excel - Fila 6",
+    "cliente": "Fabiola Parejo (@fabiolarrain)",
+    "fecha": null,
+    "hora": null,
+    "tipo": "De tal",
+    "modelos": [
+      "Bolso Tenis Lavanda"
+    ],
+    "modelos_codigos": [
+      "Modelo 1"
+    ],
+    "cantidad": 1,
+    "precio_unitario": 50,
+    "monto": 50,
+    "moneda": "USD",
+    "cuenta": null,
+    "notas": null
+  },
+  {
+    "id": 7,
+    "origen": "Excel - Fila 7",
+    "cliente": "Andrea (@adii_15)",
+    "fecha": null,
+    "hora": null,
+    "tipo": "De tal",
+    "modelos": [
+      "Bolso Tenis Panda"
+    ],
+    "modelos_codigos": [
+      "Modelo 7"
+    ],
+    "cantidad": 1,
+    "precio_unitario": 55,
+    "monto": 55,
+    "moneda": "USD",
+    "cuenta": null,
+    "notas": null
+  },
+  {
+    "id": 8,
+    "origen": "Excel - Fila 8",
+    "cliente": "Osiris (INSTA)",
+    "fecha": null,
+    "hora": null,
+    "tipo": "De tal",
+    "modelos": [
+      "Bolso Tenis Panda"
+    ],
+    "modelos_codigos": [
+      "Modelo 7"
+    ],
+    "cantidad": 1,
+    "precio_unitario": 50,
+    "monto": 50,
+    "moneda": "USD",
+    "cuenta": null,
+    "notas": null
+  },
+  {
+    "id": 9,
+    "origen": "Excel - Fila 9",
+    "cliente": "Fabiana Maldera (@fabimaldera)",
+    "fecha": null,
+    "hora": null,
+    "tipo": "De tal",
+    "modelos": [
+      "Bolso Tenis Mocca"
+    ],
+    "modelos_codigos": [
+      "Modelo 6"
+    ],
+    "cantidad": 1,
+    "precio_unitario": 55,
+    "monto": 55,
+    "moneda": "USD",
+    "cuenta": null,
+    "notas": null
+  },
+  {
+    "id": 10,
+    "origen": "Excel - Fila 10",
+    "cliente": "Dave Quintanilla (@davesqm)",
+    "fecha": null,
+    "hora": null,
+    "tipo": "De tal",
+    "modelos": [
+      "Bolso Tenis Disco"
+    ],
+    "modelos_codigos": [
+      "Modelo 5"
+    ],
+    "cantidad": 1,
+    "precio_unitario": 55,
+    "monto": 55,
+    "moneda": "USD",
+    "cuenta": null,
+    "notas": null
+  },
+  {
+    "id": 11,
+    "origen": "Excel - Fila 11",
+    "cliente": "Jesus Herrera (@jesuseduardoherrera...)",
+    "fecha": "17/11/2025",
+    "hora": null,
+    "tipo": "De tal",
+    "modelos": [
+      "Bolso Tenis Classic Blue"
+    ],
+    "modelos_codigos": [
+      "Modelo 8"
+    ],
+    "cantidad": 1,
+    "precio_unitario": 55,
+    "monto": 55,
+    "moneda": "USD",
+    "cuenta": null,
+    "notas": null
+  },
+  {
+    "id": 12,
+    "origen": "Excel - Fila 12",
+    "cliente": "Anyi (@anyi_seguros)",
+    "fecha": "22/11/2025",
+    "hora": null,
+    "tipo": "De tal",
+    "modelos": [
+      "Bolso Tenis Lavanda"
+    ],
+    "modelos_codigos": [
+      "Modelo 1"
+    ],
+    "cantidad": 1,
+    "precio_unitario": 55,
+    "monto": 55,
+    "moneda": "USD",
+    "cuenta": null,
+    "notas": null
+  },
+  {
+    "id": 13,
+    "origen": "Excel - Fila 13",
+    "cliente": "Valeria Suarez (@valeriaaaasc)",
+    "fecha": "23/11/2025",
+    "hora": null,
+    "tipo": "De tal",
+    "modelos": [
+      "Bolso Tenis Panda"
+    ],
+    "modelos_codigos": [
+      "Modelo 7"
+    ],
+    "cantidad": 1,
+    "precio_unitario": 50,
+    "monto": 50,
+    "moneda": "USD",
+    "cuenta": null,
+    "notas": null
+  },
+  {
+    "id": 14,
+    "origen": "Excel - Fila 14",
+    "cliente": "Keilyn (@keilynchaconl)",
+    "fecha": "24/11/2025",
+    "hora": null,
+    "tipo": "De tal",
+    "modelos": [
+      "Bolso Tenis Panda"
+    ],
+    "modelos_codigos": [
+      "Modelo 7"
+    ],
+    "cantidad": 1,
+    "precio_unitario": 55,
+    "monto": 55,
+    "moneda": "USD",
+    "cuenta": null,
+    "notas": null
+  },
+  {
+    "id": 15,
+    "origen": "Excel - Fila 15",
+    "cliente": "Eugenia Risquez (@eugeniarisquez)",
+    "fecha": "24/11/2025",
+    "hora": null,
+    "tipo": "De tal",
+    "modelos": [
+      "Bolso Tenis Panda"
+    ],
+    "modelos_codigos": [
+      "Modelo 7"
+    ],
+    "cantidad": 1,
+    "precio_unitario": 55,
+    "monto": 55,
+    "moneda": "USD",
+    "cuenta": null,
+    "notas": null
+  },
+  {
+    "id": 16,
+    "origen": "Excel - Fila 16",
+    "cliente": "Marilin Tutunji (@marilintutunji)",
+    "fecha": "25/11/2025",
+    "hora": null,
+    "tipo": "De tal",
+    "modelos": [
+      "Bolso Tenis Commando"
+    ],
+    "modelos_codigos": [
+      "Modelo 2"
+    ],
+    "cantidad": 1,
+    "precio_unitario": 45,
+    "monto": 45,
+    "moneda": "USD",
+    "cuenta": null,
+    "notas": null
+  },
+  {
+    "id": 17,
+    "origen": "Excel - Fila 17",
+    "cliente": "Marilin Tutunji (@marilintutunji)",
+    "fecha": "26/11/2025",
+    "hora": null,
+    "tipo": "De tal",
+    "modelos": [
+      "Bolso Tenis Orange"
+    ],
+    "modelos_codigos": [
+      "Modelo 9"
+    ],
+    "cantidad": 1,
+    "precio_unitario": 40,
+    "monto": 40,
+    "moneda": "USD",
+    "cuenta": null,
+    "notas": null
+  },
+  {
+    "id": 18,
+    "origen": "Excel - Fila 18",
+    "cliente": "Miriam Passariello (@miriampasss)",
+    "fecha": "27/11/2025",
+    "hora": null,
+    "tipo": "De tal",
+    "modelos": [
+      "Bolso Tenis Panda"
+    ],
+    "modelos_codigos": [
+      "Modelo 7"
+    ],
+    "cantidad": 1,
+    "precio_unitario": 55,
+    "monto": 55,
+    "moneda": "USD",
+    "cuenta": null,
+    "notas": null
+  },
+  {
+    "id": 19,
+    "origen": "Excel - Fila 19",
+    "cliente": "Josepmit (@josepmit)",
+    "fecha": "27/11/2025",
+    "hora": null,
+    "tipo": "De tal",
+    "modelos": [
+      "Bolso Tenis Flamenco"
+    ],
+    "modelos_codigos": [
+      "Modelo 4"
+    ],
+    "cantidad": 1,
+    "precio_unitario": 50,
+    "monto": 50,
+    "moneda": "USD",
+    "cuenta": null,
+    "notas": null
+  },
+  {
+    "id": 20,
+    "origen": "Excel - Fila 20",
+    "cliente": "Omar Ojeda (@omarojeda21)",
+    "fecha": "28/11/2025",
+    "hora": null,
+    "tipo": "De tal",
+    "modelos": [
+      "Bolso Tenis Disco"
+    ],
+    "modelos_codigos": [
+      "Modelo 5"
+    ],
+    "cantidad": 1,
+    "precio_unitario": 40,
+    "monto": 40,
+    "moneda": "USD",
+    "cuenta": null,
+    "notas": null
+  },
+  {
+    "id": 21,
+    "origen": "Excel - Fila 21",
+    "cliente": "Omar Colmenares (@omarcolmenares...)",
+    "fecha": "28/11/2025",
+    "hora": null,
+    "tipo": "De tal",
+    "modelos": [
+      "Bolso Tenis Commando"
+    ],
+    "modelos_codigos": [
+      "Modelo 2"
+    ],
+    "cantidad": 1,
+    "precio_unitario": 46,
+    "monto": 46,
+    "moneda": "USD",
+    "cuenta": null,
+    "notas": null
+  },
+  {
+    "id": 22,
+    "origen": "Excel - Fila 22",
+    "cliente": "Alejandra Ortiz (@aleortiz29)",
+    "fecha": "03/12/2025",
+    "hora": null,
+    "tipo": "De tal",
+    "modelos": [
+      "Bolso Tenis Commando",
+      "Bolso Tenis Classic Blue"
+    ],
+    "modelos_codigos": [
+      "Modelo 2",
+      "Modelo 8"
+    ],
+    "cantidad": 2,
+    "precio_unitario": 55,
+    "monto": 110,
+    "moneda": "USD",
+    "cuenta": null,
+    "notas": null
+  },
+  {
+    "id": 23,
+    "origen": "Excel - Fila 23",
+    "cliente": "Ana Karina Hernandez (@karerinna)",
+    "fecha": "05/12/2025",
+    "hora": null,
+    "tipo": "De tal",
+    "modelos": [
+      "Bolso Tenis Lavanda"
+    ],
+    "modelos_codigos": [
+      "Modelo 1"
+    ],
+    "cantidad": 1,
+    "precio_unitario": 55,
+    "monto": 55,
+    "moneda": "USD",
+    "cuenta": null,
+    "notas": null
+  },
+  {
+    "id": 24,
+    "origen": "Excel - Fila 24",
+    "cliente": "Luis Romero (@luisromeroof)",
+    "fecha": "10/12/2025",
+    "hora": null,
+    "tipo": "De tal",
+    "modelos": [
+      "Bolso Tenis Mocca"
+    ],
+    "modelos_codigos": [
+      "Modelo 6"
+    ],
+    "cantidad": 1,
+    "precio_unitario": 60,
+    "monto": 60,
+    "moneda": "USD",
+    "cuenta": null,
+    "notas": null
+  },
+  {
+    "id": 25,
+    "origen": "Excel - Fila 25",
+    "cliente": "Caco Cendon (@carolinacendon)",
+    "fecha": "15/12/2025",
+    "hora": null,
+    "tipo": "De tal",
+    "modelos": [
+      "Bolso Tenis Disco"
+    ],
+    "modelos_codigos": [
+      "Modelo 5"
+    ],
+    "cantidad": 1,
+    "precio_unitario": 50,
+    "monto": 50,
+    "moneda": "USD",
+    "cuenta": null,
+    "notas": null
+  },
+  {
+    "id": 26,
+    "origen": "Excel - Fila 26",
+    "cliente": "Ma. Sabina Quintero (@sabinaquinter...)",
+    "fecha": "16/12/2025",
+    "hora": null,
+    "tipo": "De tal",
+    "modelos": [
+      "Bolso Tenis Orange"
+    ],
+    "modelos_codigos": [
+      "Modelo 9"
+    ],
+    "cantidad": 1,
+    "precio_unitario": 55,
+    "monto": 55,
+    "moneda": "USD",
+    "cuenta": null,
+    "notas": null
+  },
+  {
+    "id": 27,
+    "origen": "Excel - Fila 27",
+    "cliente": "Mari Palacios (@mari_pruiz)",
+    "fecha": "17/12/2025",
+    "hora": null,
+    "tipo": "De tal",
+    "modelos": [
+      "Bolso Tenis Classic Blue"
+    ],
+    "modelos_codigos": [
+      "Modelo 8"
+    ],
+    "cantidad": 1,
+    "precio_unitario": 55,
+    "monto": 55,
+    "moneda": "USD",
+    "cuenta": null,
+    "notas": null
+  },
+  {
+    "id": 28,
+    "origen": "Excel - Fila 28",
+    "cliente": "Kristhian Gutierrez (@kristhian.ga)",
+    "fecha": "17/12/2025",
+    "hora": null,
+    "tipo": "De tal",
+    "modelos": [
+      "Bolso Tenis Flamenco"
+    ],
+    "modelos_codigos": [
+      "Modelo 4"
+    ],
+    "cantidad": 1,
+    "precio_unitario": 55,
+    "monto": 55,
+    "moneda": "USD",
+    "cuenta": null,
+    "notas": null
+  },
+  {
+    "id": 29,
+    "origen": "Excel - Fila 29",
+    "cliente": "Valeria Humpierres (@valeriahumpier...)",
+    "fecha": "18/12/2025",
+    "hora": null,
+    "tipo": "De tal",
+    "modelos": [
+      "Bolso Tenis Classic Blue"
+    ],
+    "modelos_codigos": [
+      "Modelo 8"
+    ],
+    "cantidad": 1,
+    "precio_unitario": 55,
+    "monto": 55,
+    "moneda": "USD",
+    "cuenta": null,
+    "notas": null
+  },
+  {
+    "id": 30,
+    "origen": "Excel - Fila 30",
+    "cliente": "R Rodriguez (@rrodriguez_87)",
+    "fecha": "18/12/2025",
+    "hora": null,
+    "tipo": "De tal",
+    "modelos": [
+      "Bolso Tenis Lavanda"
+    ],
+    "modelos_codigos": [
+      "Modelo 1"
+    ],
+    "cantidad": 1,
+    "precio_unitario": 55,
+    "monto": 55,
+    "moneda": "USD",
+    "cuenta": null,
+    "notas": null
+  },
+  {
+    "id": 31,
+    "origen": "Excel - Fila 31",
+    "cliente": "tu/eso (@n3grol0v3r)",
+    "fecha": "20/12/2025",
+    "hora": null,
+    "tipo": "De tal",
+    "modelos": [
+      "Bolso Tenis Classic Blue"
+    ],
+    "modelos_codigos": [
+      "Modelo 8"
+    ],
+    "cantidad": 1,
+    "precio_unitario": 55,
+    "monto": 55,
+    "moneda": "USD",
+    "cuenta": null,
+    "notas": null
+  },
+  {
+    "id": 32,
+    "origen": "Excel - Fila 32",
+    "cliente": "Claudia Castro (@clauccr_)",
+    "fecha": "20/12/2025",
+    "hora": null,
+    "tipo": "De tal",
+    "modelos": [
+      "Bolso Tenis Disco"
+    ],
+    "modelos_codigos": [
+      "Modelo 5"
+    ],
+    "cantidad": 1,
+    "precio_unitario": 60,
+    "monto": 60,
+    "moneda": "USD",
+    "cuenta": null,
+    "notas": null
+  },
+  {
+    "id": 33,
+    "origen": "Excel - Fila 33",
+    "cliente": "Faride Katherine (@kathyszd)",
+    "fecha": "20/12/2025",
+    "hora": null,
+    "tipo": "De tal",
+    "modelos": [
+      "Bolso Tenis Lilac Army"
+    ],
+    "modelos_codigos": [
+      "Modelo 3"
+    ],
+    "cantidad": 1,
+    "precio_unitario": 55,
+    "monto": 55,
+    "moneda": "USD",
+    "cuenta": null,
+    "notas": null
+  },
+  {
+    "id": 34,
+    "origen": "Excel - Fila 34",
+    "cliente": "Marnie Valdez (@mvaldez03)",
+    "fecha": "20/12/2025",
+    "hora": null,
+    "tipo": "De tal",
+    "modelos": [
+      "Bolso Tenis Mocca"
+    ],
+    "modelos_codigos": [
+      "Modelo 6"
+    ],
+    "cantidad": 1,
+    "precio_unitario": 55,
+    "monto": 55,
+    "moneda": "USD",
+    "cuenta": null,
+    "notas": null
+  },
+  {
+    "id": 35,
+    "origen": "Excel - Fila 35",
+    "cliente": "Daniel Da Silva (@danields1993)",
+    "fecha": "20/12/2025",
+    "hora": null,
+    "tipo": "De tal",
+    "modelos": [
+      "Bolso Tenis Lavanda"
+    ],
+    "modelos_codigos": [
+      "Modelo 1"
+    ],
+    "cantidad": 1,
+    "precio_unitario": 55,
+    "monto": 55,
+    "moneda": "USD",
+    "cuenta": null,
+    "notas": null
+  },
+  {
+    "id": 36,
+    "origen": "Excel - Fila 36",
+    "cliente": "Liger Vargas (@liger.vargas)",
+    "fecha": "21/12/2025",
+    "hora": null,
+    "tipo": "De tal",
+    "modelos": [
+      "Bolso Tenis Mocca"
+    ],
+    "modelos_codigos": [
+      "Modelo 6"
+    ],
+    "cantidad": 1,
+    "precio_unitario": 55,
+    "monto": 55,
+    "moneda": "USD",
+    "cuenta": null,
+    "notas": null
+  },
+  {
+    "id": 37,
+    "origen": "Excel - Fila 37",
+    "cliente": "Pamela Monaco (@bellastrega78)",
+    "fecha": "22/12/2025",
+    "hora": null,
+    "tipo": "De tal",
+    "modelos": [
+      "Bolso Tenis Classic Blue"
+    ],
+    "modelos_codigos": [
+      "Modelo 8"
+    ],
+    "cantidad": 1,
+    "precio_unitario": 55,
+    "monto": 55,
+    "moneda": "USD",
+    "cuenta": null,
+    "notas": null
+  },
+  {
+    "id": 38,
+    "origen": "Excel - Fila 38",
+    "cliente": "Camila Pittaluga",
+    "fecha": "22/12/2025",
+    "hora": null,
+    "tipo": "De tal",
+    "modelos": [
+      "Bolso Tenis Commando"
+    ],
+    "modelos_codigos": [
+      "Modelo 2"
+    ],
+    "cantidad": 1,
+    "precio_unitario": 50,
+    "monto": 50,
+    "moneda": "USD",
+    "cuenta": null,
+    "notas": null
+  },
+  {
+    "id": 39,
+    "origen": "Excel - Fila 39",
+    "cliente": "Andrea Cifuentes (@acifue)",
+    "fecha": "23/12/2025",
+    "hora": null,
+    "tipo": "De tal",
+    "modelos": [
+      "Bolso Tenis Flamenco"
+    ],
+    "modelos_codigos": [
+      "Modelo 4"
+    ],
+    "cantidad": 1,
+    "precio_unitario": 55,
+    "monto": 55,
+    "moneda": "USD",
+    "cuenta": null,
+    "notas": null
+  },
+  {
+    "id": 40,
+    "origen": "Excel - Fila 40",
+    "cliente": "Rudy Idler (@rudyidler)",
+    "fecha": "23/12/2025",
+    "hora": null,
+    "tipo": "De tal",
+    "modelos": [
+      "Bolso Tenis Disco"
+    ],
+    "modelos_codigos": [
+      "Modelo 5"
+    ],
+    "cantidad": 1,
+    "precio_unitario": 55,
+    "monto": 55,
+    "moneda": "USD",
+    "cuenta": null,
+    "notas": null
+  },
+  {
+    "id": 41,
+    "origen": "Excel - Fila 41",
+    "cliente": "Lidia Reyes (@trilliziando)",
+    "fecha": "23/12/2025",
+    "hora": null,
+    "tipo": "De tal",
+    "modelos": [
+      "Bolso Tenis Lavanda"
+    ],
+    "modelos_codigos": [
+      "Modelo 1"
+    ],
+    "cantidad": 1,
+    "precio_unitario": 55,
+    "monto": 55,
+    "moneda": "USD",
+    "cuenta": null,
+    "notas": null
+  },
+  {
+    "id": 42,
+    "origen": "Excel - Fila 42",
+    "cliente": "M Fernanda Hernandez (@)",
+    "fecha": "5/3/2026",
+    "hora": null,
+    "tipo": "De tal",
+    "modelos": [
+      "Bolso Tenis Lilac Army"
+    ],
+    "modelos_codigos": [
+      "Modelo 3"
+    ],
+    "cantidad": 1,
+    "precio_unitario": 55,
+    "monto": 55,
+    "moneda": "USD",
+    "cuenta": null,
+    "notas": null
+  },
+  {
+    "id": 43,
+    "origen": "Excel - Fila 43",
+    "cliente": "Teresa Gomez (@)",
+    "fecha": "6/3/2026",
+    "hora": "10:51 a.m.",
+    "tipo": "De tal",
+    "modelos": [
+      "Bolso Tenis Disco"
+    ],
+    "modelos_codigos": [
+      "Modelo 5"
+    ],
+    "cantidad": 1,
+    "precio_unitario": 55,
+    "monto": 55,
+    "moneda": "USD",
+    "cuenta": "Efectivo Stephanie",
+    "notas": null
+  },
+  {
+    "id": 44,
+    "origen": "Excel - Fila 44",
+    "cliente": "Joana Burgos",
+    "fecha": "9/3/2026",
+    "hora": "2:52 p.m.",
+    "tipo": "De tal",
+    "modelos": [
+      "Bolso Tenis Lavanda"
+    ],
+    "modelos_codigos": [
+      "Modelo 1"
+    ],
+    "cantidad": 1,
+    "precio_unitario": 55,
+    "monto": 55,
+    "moneda": "USD",
+    "cuenta": "Efectivo Stephanie",
+    "notas": null
+  },
+  {
+    "id": 45,
+    "origen": "Excel - Fila 45",
+    "cliente": "Samuel Agreda",
+    "fecha": "9/3/2026",
+    "hora": "2:54 p.m.",
+    "tipo": "De tal",
+    "modelos": [
+      "Bolso Tenis Mocca"
+    ],
+    "modelos_codigos": [
+      "Modelo 6"
+    ],
+    "cantidad": 1,
+    "precio_unitario": 55,
+    "monto": 55,
+    "moneda": "USD",
+    "cuenta": "Efectivo Stephanie",
+    "notas": null
+  },
+  {
+    "id": 46,
+    "origen": "Excel - Fila 46",
+    "cliente": "Adelia",
+    "fecha": "10/3/2026",
+    "hora": "3:46 p.m.",
+    "tipo": "De tal",
+    "modelos": [
+      "Bolso Tenis Disco"
+    ],
+    "modelos_codigos": [
+      "Modelo 5"
+    ],
+    "cantidad": 1,
+    "precio_unitario": 55,
+    "monto": 55,
+    "moneda": "USD",
+    "cuenta": "Zelle",
+    "notas": null
+  },
+  {
+    "id": 47,
+    "origen": "Excel - Fila 47",
+    "cliente": "Marco Antonio Diaz",
+    "fecha": "23/3/2026",
+    "hora": "8:27 p.m.",
+    "tipo": "De tal",
+    "modelos": [
+      "Bolso Tenis Disco"
+    ],
+    "modelos_codigos": [
+      "Modelo 5"
+    ],
+    "cantidad": 1,
+    "precio_unitario": 55,
+    "monto": 55,
+    "moneda": "USD",
+    "cuenta": "Efectivo Sergio",
+    "notas": null
+  },
+  {
+    "id": 48,
+    "origen": "Excel - Fila 48",
+    "cliente": "Jorkelys Garmes",
+    "fecha": "24/3/2026",
+    "hora": "8:48 p.m.",
+    "tipo": "De tal",
+    "modelos": [
+      "Bolso Tenis Mocca"
+    ],
+    "modelos_codigos": [
+      "Modelo 6"
+    ],
+    "cantidad": 1,
+    "precio_unitario": 50,
+    "monto": 50,
+    "moneda": "USD",
+    "cuenta": "Efectivo Sergio",
+    "notas": null
+  },
+  {
+    "id": 49,
+    "origen": "App Móvil",
+    "cliente": "Amanda",
+    "fecha": "21 de enero",
+    "hora": "7:38 p.m.",
+    "tipo": "De tal",
+    "modelos": [
+      "Bolso Tenis Mocca"
+    ],
+    "modelos_codigos": [
+      "Modelo 6"
+    ],
+    "cantidad": 1,
+    "precio_unitario": 55,
+    "monto": 55,
+    "moneda": "USD",
+    "cuenta": "Efectivo Stephanie",
+    "notas": "Bolso número 6/ despacho Tony"
+  },
+  {
+    "id": 50,
+    "origen": "App Móvil",
+    "cliente": "Giovanna",
+    "fecha": "3 de abril",
+    "hora": "10:44 a.m.",
+    "tipo": "De tal",
+    "modelos": [
+      "Bolso Tenis Disco"
+    ],
+    "modelos_codigos": [
+      "Modelo 5"
+    ],
+    "cantidad": 1,
+    "precio_unitario": 55,
+    "monto": 55,
+    "moneda": "USD",
+    "cuenta": "Zelle",
+    "notas": "Bolso número 5"
+  },
+  {
+    "id": 51,
+    "origen": "App Móvil",
+    "cliente": "Raquel Abadi",
+    "fecha": "13 de abril",
+    "hora": "1:48 p.m.",
+    "tipo": "De tal",
+    "modelos": [
+      "Bolso Tenis Mocca"
+    ],
+    "modelos_codigos": [
+      "Modelo 6"
+    ],
+    "cantidad": 1,
+    "precio_unitario": 55,
+    "monto": 55,
+    "moneda": "USD",
+    "cuenta": "Efectivo Stephanie",
+    "notas": "Bolso número 6"
+  },
+  {
+    "id": 52,
+    "origen": "App Móvil",
+    "cliente": "Mónica",
+    "fecha": "16 de abril",
+    "hora": "9:29 a.m.",
+    "tipo": "De tal",
+    "modelos": [
+      "Bolso Tenis Lavanda",
+      "Bolso Tenis Flamenco"
+    ],
+    "modelos_codigos": [
+      "Modelo 1",
+      "Modelo 4"
+    ],
+    "cantidad": 2,
+    "precio_unitario": 55,
+    "monto": 110,
+    "moneda": "USD",
+    "cuenta": "Efectivo Sergio",
+    "notas": "Bolso 1 y bolso 4"
+  },
+  {
+    "id": 53,
+    "origen": "App Móvil",
+    "cliente": "Yenny Mota",
+    "fecha": "25 de mayo",
+    "hora": "11:56 a.m.",
+    "tipo": "De tal",
+    "modelos": [
+      "Bolso Tenis Orange"
+    ],
+    "modelos_codigos": [
+      "Modelo 9"
+    ],
+    "cantidad": 1,
+    "precio_unitario": 55,
+    "monto": 55,
+    "moneda": "USD",
+    "cuenta": "Efectivo Sergio",
+    "notas": "Bolso 9"
+  },
+  {
+    "id": 54,
+    "origen": "App Móvil",
+    "cliente": "Carmen Vázquez",
+    "fecha": "6 de septiembre",
+    "hora": "9:00 a.m.",
+    "tipo": "De tal",
+    "modelos": [
+      "Bolso Tenis Lavanda"
+    ],
+    "modelos_codigos": [
+      "Modelo 1"
+    ],
+    "cantidad": 1,
+    "precio_unitario": 45,
+    "monto": 45,
+    "moneda": "USD",
+    "cuenta": "Zelle",
+    "notas": null
+  },
+  {
+    "id": 55,
+    "origen": "App Móvil",
+    "cliente": "Carolina club",
+    "fecha": "6 de septiembre",
+    "hora": "2:25 p.m.",
+    "tipo": "De tal",
+    "modelos": [
+      "Bolso Tenis Disco"
+    ],
+    "modelos_codigos": [
+      "Modelo 5"
+    ],
+    "cantidad": 1,
+    "precio_unitario": 45,
+    "monto": 45,
+    "moneda": "USD",
+    "cuenta": "Efectivo Sergio",
+    "notas": null
+  }
+]
