@@ -142,9 +142,7 @@ export default function WarehousesView({
                     placeholder="Ej. Casa Tony, Casa Sergio, Showroom..."
                     value={name}
                     onChange={e => setName(e.target.value)}
-                    required
-                    autoFocus
-                  />
+                    required/>
                 </div>
                 <div className="form-group">
                   <label className="form-label">Ubicación / Notas</label>

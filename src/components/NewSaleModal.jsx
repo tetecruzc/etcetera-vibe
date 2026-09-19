@@ -282,9 +282,7 @@ export default function NewSaleModal({
                   placeholder="Ej. Valeria Mendoza / Club Altamira"
                   value={customerName}
                   onChange={e => setCustomerName(e.target.value)}
-                  required
-                  autoFocus
-                />
+                  required/>
               </div>
 
               {/* 2. Lista de Productos del Pedido */}

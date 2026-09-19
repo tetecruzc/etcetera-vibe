@@ -93,9 +93,7 @@ export default function NewProductModal({ isOpen, onClose, onSaveProduct }) {
                 placeholder="Ej. Bolso Tenis White Gold Edition / Grip Pro Feel"
                 value={name}
                 onChange={e => setName(e.target.value)}
-                required
-                autoFocus
-              />
+                required/>
             </div>
 
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>

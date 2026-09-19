@@ -168,9 +168,7 @@ function AdjustBalanceModal({ account, onConfirm, onCancel, loading }) {
                 placeholder="0.00"
                 value={amount}
                 onChange={e => setAmount(e.target.value)}
-                required
-                autoFocus
-              />
+                required/>
             </div>
 
             {/* Nota */}
@@ -311,9 +309,7 @@ function TransferModal({ accounts, onConfirm, onCancel, loading }) {
                 placeholder="0.00"
                 value={amount}
                 onChange={e => setAmount(e.target.value)}
-                required
-                autoFocus
-              />
+                required/>
             </div>
 
             {/* Nota */}
@@ -794,9 +790,7 @@ export default function AccountsView({
                     placeholder="Ej. Banesco USD, Zelle Personal, Caja Fuerte..."
                     value={newAccountName}
                     onChange={e => setNewAccountName(e.target.value)}
-                    required
-                    autoFocus
-                  />
+                    required/>
                 </div>
                 <div className="form-group">
                   <label className="form-label">Saldo Inicial ($)</label>

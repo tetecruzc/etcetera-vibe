@@ -470,9 +470,7 @@ function StockAdjustModal({ product, warehouses, inventory, onClose, onSave }) {
               min="0"
               className="form-input"
               value={newStock}
-              onChange={e => setNewStock(e.target.value)}
-              autoFocus
-            />
+              onChange={e => setNewStock(e.target.value)}/>
             <span style={{ fontSize: '0.74rem', color: 'var(--text-muted)' }}>
               Stock actual en este almacén: {currentWhStock} unidades
             </span>
