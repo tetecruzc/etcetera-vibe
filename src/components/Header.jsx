@@ -7,7 +7,7 @@ export default function Header({ onOpenNewSale, onRefresh, activeTab, setActiveT
         {/* Brand Identity */}
         <div className="brand-logo-wrap" onClick={() => setActiveTab('inventory')}>
           <img 
-            src="/assets/logo.png" 
+            src={`${import.meta.env.BASE_URL}assets/logo.png`} 
             alt="Etcetera Logo" 
             className="brand-logo-img"
           />

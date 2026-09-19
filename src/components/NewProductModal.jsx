@@ -166,7 +166,7 @@ export default function NewProductModal({ isOpen, onClose, onSaveProduct }) {
                     }}
                     title={preset.label}
                   >
-                    <img src={preset.url} alt="" style={{ width: '42px', height: '42px', objectFit: 'contain' }} />
+                    <img src={preset.url ? import.meta.env.BASE_URL + preset.url.replace(/^\/+/, '') : ''} alt="" style={{ width: '42px', height: '42px', objectFit: 'contain' }} />
                   </button>
                 ))}
               </div>

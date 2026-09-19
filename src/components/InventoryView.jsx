@@ -443,7 +443,7 @@ function StockAdjustModal({ product, warehouses, inventory, onClose, onSave }) {
         </div>
         <div className="modal-body">
           <div style={{ display: 'flex', gap: '12px', alignItems: 'center', background: 'var(--bg-card-subtle)', padding: '12px', borderRadius: 'var(--radius-sm)' }}>
-            <img src={product.image_url} alt="" style={{ width: '48px', height: '48px', objectFit: 'contain' }} />
+            <img src={product.image_url ? import.meta.env.BASE_URL + product.image_url.replace(/^\/+/, '') : ''} alt="" style={{ width: '48px', height: '48px', objectFit: 'contain' }} />
             <div>
               <strong style={{ fontSize: '0.95rem' }}>{product.name}</strong>
               <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{product.sku}</div>
@@ -521,7 +521,7 @@ function StockTransferModal({ product, warehouses, inventory, onClose, onTransfe
         <form onSubmit={handleSubmit} style={{ display: 'contents' }}>
           <div className="modal-body">
             <div style={{ display: 'flex', gap: '12px', alignItems: 'center', background: 'var(--bg-card-subtle)', padding: '12px', borderRadius: 'var(--radius-sm)' }}>
-              <img src={product.image_url} alt="" style={{ width: '48px', height: '48px', objectFit: 'contain' }} />
+              <img src={product.image_url ? import.meta.env.BASE_URL + product.image_url.replace(/^\/+/, '') : ''} alt="" style={{ width: '48px', height: '48px', objectFit: 'contain' }} />
               <div>
                 <strong style={{ fontSize: '0.95rem' }}>{product.name}</strong>
                 <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Mover stock entre Tony y Sergio</div>
