@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { X, Plus, Trash2, CheckCircle2, ShoppingBag, ArrowRight } from 'lucide-react';
 import confetti from 'canvas-confetti';
+import { ArrowRight, CheckCircle2, Plus, ShoppingBag, Trash2, X } from 'lucide-react';
+import { useState } from 'react';
 
 export default function NewSaleModal({ 
   isOpen, 
@@ -179,7 +179,7 @@ export default function NewSaleModal({
               <ShoppingBag size={18} />
             </div>
             <div>
-              <h2 className="modal-title">Registrar Nueva Venta</h2>
+              <h2 className="modal-title">Registrar Nueva venta</h2>
               <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
                 Descuento en tiempo real y abono a cuenta
               </span>
@@ -242,7 +242,7 @@ export default function NewSaleModal({
             <div className="modal-body">
               {/* 1. Cliente */}
               <div className="form-group">
-                <label className="form-label">Nombre del Cliente *</label>
+                <label className="form-label">Nombre del cliente *</label>
                 <input
                   type="text"
                   className="form-input"
@@ -257,7 +257,7 @@ export default function NewSaleModal({
               {/* 2. Lista de Productos del Pedido */}
               <div className="form-group">
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
-                  <label className="form-label">Artículos del Pedido ({items.length}) *</label>
+                  <label className="form-label">Artículos del pedido ({items.length}) *</label>
                   <button
                     type="button"
                     onClick={handleAddItem}
@@ -417,7 +417,7 @@ export default function NewSaleModal({
 
               {/* 4. Comentarios / Notas de la Compra */}
               <div className="form-group">
-                <label className="form-label">Comentarios o Notas de la Compra</label>
+                <label className="form-label">Comentarios o notas de la compra</label>
                 <textarea
                   className="form-textarea"
                   placeholder="Ej. Pagó en efectivo contra entrega / Se coordinó envío a Caracas / Descuento cortesía cliente frecuente..."
@@ -455,7 +455,7 @@ export default function NewSaleModal({
               >
                 {isSubmitting ? 'Procesando...' : (
                   <>
-                    <span>Confirmar Venta</span>
+                    <span>Confirmar venta</span>
                     <ArrowRight size={16} />
                   </>
                 )}

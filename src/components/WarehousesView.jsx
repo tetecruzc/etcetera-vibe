@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Building2, Plus, MapPin, Package, Check, Layers } from 'lucide-react';
+import { Building2, MapPin, Plus } from 'lucide-react';
+import { useState } from 'react';
 
 export default function WarehousesView({ 
   warehouses = [], 
@@ -28,14 +28,14 @@ export default function WarehousesView({
       {/* Header & Add Button */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
         <div>
-          <h2 style={{ fontSize: '1.25rem', fontWeight: '700' }}>Gestión de Almacenes</h2>
+          <h2 style={{ fontSize: '1.25rem', fontWeight: '700' }}>Gestión de almacenes</h2>
           <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
             Administra tus sedes de inventario (Casa Tony, Casa Sergio y nuevos almacenes)
           </p>
         </div>
         <button className="btn-secondary" onClick={() => setIsAdding(true)}>
           <Plus size={15} />
-          <span>Añadir Almacén</span>
+          <span>Añadir almacén</span>
         </button>
       </div>
 

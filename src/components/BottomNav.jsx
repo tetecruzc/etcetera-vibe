@@ -1,5 +1,4 @@
-import React from 'react';
-import { Package, Wallet, Plus, Receipt, Building2 } from 'lucide-react';
+import { Building2, Package, Plus, Receipt, Wallet } from 'lucide-react';
 
 export default function BottomNav({ activeTab, setActiveTab, onOpenNewSale }) {
   return (
@@ -24,7 +23,7 @@ export default function BottomNav({ activeTab, setActiveTab, onOpenNewSale }) {
       <button 
         className="bottom-tab sale-cta"
         onClick={onOpenNewSale}
-        aria-label="Registrar Nueva Venta"
+        aria-label="Registrar Nueva venta"
       >
         <Plus size={26} strokeWidth={2.5} />
       </button>

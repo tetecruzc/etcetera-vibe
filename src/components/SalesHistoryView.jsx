@@ -1,14 +1,29 @@
-import React, { useState } from 'react';
-import { Receipt, Search, Calendar, User, MessageSquare, CreditCard, Building2, Package } from 'lucide-react';
+import { Building2, Calendar, CreditCard, MessageSquare, Receipt, Search, Trash, User } from 'lucide-react';
+import { useState } from 'react';
 
 export default function SalesHistoryView({ 
   orders = [], 
   orderItems = [], 
   products = [], 
   warehouses = [], 
-  accounts = [] 
+  accounts = [],
+  onDeleteOrder
 }) {
   const [search, setSearch] = useState('');
+  const [deletingId, setDeletingId] = useState(null);
+
+  const handleDelete = async (orderId) => {
+    if (!window.confirm('¿Estás seguro de que deseas eliminar esta venta? Esta acción devolverá el stock al inventario y restará el saldo a la cuenta.')) return;
+    
+    setDeletingId(orderId);
+    try {
+      if (onDeleteOrder) await onDeleteOrder(orderId);
+    } catch (err) {
+      alert(err.message || 'Error al eliminar venta');
+    } finally {
+      setDeletingId(null);
+    }
+  };
 
   const filteredOrders = orders.filter(o => {
     const q = search.toLowerCase();
@@ -39,7 +54,7 @@ export default function SalesHistoryView({
       {/* Header & Search */}
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
         <div>
-          <h2 style={{ fontSize: '1.25rem', fontWeight: '700' }}>Historial de Ventas</h2>
+          <h2 style={{ fontSize: '1.25rem', fontWeight: '700' }}>Historial de ventas</h2>
           <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
             Registro detallado de salidas por almacén, cliente y cuenta receptora
           </p>
@@ -96,10 +111,28 @@ export default function SalesHistoryView({
                     </span>
                   </div>
 
-                  <div style={{ textAlign: 'right' }}>
+                  <div style={{ textAlign: 'right', display: 'flex', alignItems: 'center', gap: '12px' }}>
                     <span style={{ fontSize: '1.25rem', fontWeight: '800', color: 'var(--accent-dark)' }}>
                       ${Number(order.total_amount).toFixed(2)}
                     </span>
+                    <button 
+                      onClick={() => handleDelete(order.id)}
+                      disabled={deletingId === order.id}
+                      style={{
+                        background: 'transparent',
+                        border: 'none',
+                        color: deletingId === order.id ? 'var(--text-muted)' : 'var(--danger, #ef4444)',
+                        cursor: deletingId === order.id ? 'not-allowed' : 'pointer',
+                        padding: '4px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        borderRadius: '4px'
+                      }}
+                      title="Eliminar Venta"
+                    >
+                      <Trash size={18} />
+                    </button>
                   </div>
                 </div>
 

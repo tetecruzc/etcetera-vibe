@@ -1,21 +1,26 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import Header from './components/Header';
-import BottomNav from './components/BottomNav';
-import InventoryView from './components/InventoryView';
+import { useCallback, useEffect, useState } from 'react';
 import AccountsView from './components/AccountsView';
+import BottomNav from './components/BottomNav';
+import Header from './components/Header';
+import InventoryView from './components/InventoryView';
+import NewProductModal from './components/NewProductModal';
+import NewSaleModal from './components/NewSaleModal';
 import SalesHistoryView from './components/SalesHistoryView';
 import WarehousesView from './components/WarehousesView';
-import NewSaleModal from './components/NewSaleModal';
-import NewProductModal from './components/NewProductModal';
 
 import {
-  fetchAppData,
-  createSaleTransaction,
-  updateProductStock,
-  transferStock,
-  saveWarehouse,
-  saveAccount,
-  saveProduct
+    adjustAccountBalance,
+    createSaleTransaction,
+    deleteAccount,
+    deleteSaleTransaction,
+    deleteTransaction,
+    fetchAppData,
+    saveAccount,
+    saveProduct,
+    saveWarehouse,
+    transferBetweenAccounts,
+    transferStock,
+    updateProductStock
 } from './lib/supabase';
 
 export default function App() {
@@ -29,7 +34,8 @@ export default function App() {
     inventory: [],
     accounts: [],
     orders: [],
-    orderItems: []
+    orderItems: [],
+    transactions: []
   });
 
   // Modals
@@ -89,6 +95,38 @@ export default function App() {
     await loadData();
   };
 
+  // Handler: Eliminar Cuenta
+  const handleDeleteAccount = async (accountId) => {
+    await deleteAccount(accountId);
+    await loadData();
+  };
+
+  // Handler: Ajustar saldo de Cuenta
+  const handleAdjustBalance = async (accountId, amount, type, notes) => {
+    const res = await adjustAccountBalance(accountId, amount, type, notes);
+    if (res.success) await loadData();
+    return res;
+  };
+
+  // Handler: Transferir entre Cuentas
+  const handleTransferBetweenAccounts = async (transferData) => {
+    const res = await transferBetweenAccounts(transferData);
+    if (res.success) await loadData();
+    return res;
+  };
+
+  // Handler: Eliminar Movimiento
+  const handleDeleteTransaction = async (txId) => {
+    await deleteTransaction(txId);
+    await loadData();
+  };
+
+  // Handler: Eliminar Venta (Pedido)
+  const handleDeleteOrder = async (orderId) => {
+    await deleteSaleTransaction(orderId);
+    await loadData();
+  };
+
   // Handler: Guardar Producto
   const handleSaveProduct = async (prodData) => {
     await saveProduct(prodData);
@@ -141,12 +179,17 @@ export default function App() {
                 onOpenNewSale={() => setIsNewSaleOpen(true)}
               />
             )}
-
             {activeTab === 'accounts' && (
               <AccountsView
                 accounts={data.accounts}
                 orders={data.orders}
+                transactions={data.transactions}
                 onSaveAccount={handleSaveAccount}
+                onDeleteAccount={handleDeleteAccount}
+                onAdjustBalance={handleAdjustBalance}
+                onTransferBetweenAccounts={handleTransferBetweenAccounts}
+                onDeleteTransaction={handleDeleteTransaction}
+                onDeleteOrder={handleDeleteOrder}
               />
             )}
 
@@ -157,6 +200,7 @@ export default function App() {
                 products={data.products}
                 warehouses={data.warehouses}
                 accounts={data.accounts}
+                onDeleteOrder={handleDeleteOrder}
               />
             )}
 
@@ -179,7 +223,7 @@ export default function App() {
         onOpenNewSale={() => setIsNewSaleOpen(true)}
       />
 
-      {/* MODAL: Nueva Venta */}
+      {/* MODAL: Nueva venta */}
       <NewSaleModal
         isOpen={isNewSaleOpen}
         onClose={() => setIsNewSaleOpen(false)}

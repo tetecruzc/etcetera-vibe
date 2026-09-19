@@ -35,7 +35,7 @@ export default function Header({ onOpenNewSale, onRefresh, activeTab, setActiveT
             className={`nav-link-btn ${activeTab === 'sales' ? 'active' : ''}`}
             onClick={() => setActiveTab('sales')}
           >
-            Historial de Ventas
+            Historial de ventas
           </button>
           <button 
             className={`nav-link-btn ${activeTab === 'warehouses' ? 'active' : ''}`}
@@ -70,7 +70,7 @@ export default function Header({ onOpenNewSale, onRefresh, activeTab, setActiveT
             style={{ padding: '8px 16px', fontSize: '0.82rem' }}
           >
             <Plus size={16} />
-            <span>Nueva Venta</span>
+            <span>Nueva venta</span>
           </button>
         </div>
       </div>

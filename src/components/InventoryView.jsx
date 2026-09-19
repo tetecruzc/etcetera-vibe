@@ -419,7 +419,7 @@ function StockTransferModal({ product, warehouses, inventory, onClose, onTransfe
       <div className="modal-sheet" onClick={e => e.stopPropagation()} style={{ maxWidth: '440px' }}>
         <div className="sheet-handle"></div>
         <div className="modal-header">
-          <h2 className="modal-title">Transferir entre Almacenes</h2>
+          <h2 className="modal-title">Transferir entre almacenes</h2>
           <button className="modal-close-btn" onClick={onClose}><XIcon /></button>
         </div>
         <form onSubmit={handleSubmit} style={{ display: 'contents' }}>
@@ -433,7 +433,7 @@ function StockTransferModal({ product, warehouses, inventory, onClose, onTransfe
             </div>
 
             <div className="form-group">
-              <label className="form-label">Desde Almacén (Origen)</label>
+              <label className="form-label">Desde almacén (Origen)</label>
               <select className="form-select" value={fromWh} onChange={e => setFromWh(e.target.value)}>
                 {warehouses.map(w => (
                   <option key={w.id} value={w.id}>{w.name}</option>
@@ -445,7 +445,7 @@ function StockTransferModal({ product, warehouses, inventory, onClose, onTransfe
             </div>
 
             <div className="form-group">
-              <label className="form-label">Hacia Almacén (Destino)</label>
+              <label className="form-label">Hacia almacén (Destino)</label>
               <select className="form-select" value={toWh} onChange={e => setToWh(e.target.value)}>
                 {warehouses.map(w => (
                   <option key={w.id} value={w.id}>{w.name}</option>
@@ -454,7 +454,7 @@ function StockTransferModal({ product, warehouses, inventory, onClose, onTransfe
             </div>
 
             <div className="form-group">
-              <label className="form-label">Cantidad a Mover</label>
+              <label className="form-label">Cantidad a mover</label>
               <input
                 type="number"
                 min="1"
@@ -467,7 +467,7 @@ function StockTransferModal({ product, warehouses, inventory, onClose, onTransfe
           </div>
           <div className="modal-footer">
             <button type="button" className="btn-secondary" onClick={onClose}>Cancelar</button>
-            <button type="submit" className="btn-gold">Confirmar Transferencia</button>
+            <button type="submit" className="btn-gold">Confirmar transferencia</button>
           </div>
         </form>
       </div>

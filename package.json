@@ -8,7 +8,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "seed": "node --experimental-websocket scripts/seed.js",
-    "reset": "node --experimental-websocket scripts/reset.js"
+    "reset": "node --experimental-websocket scripts/reset.js",
+    "import-history": "node --experimental-websocket scripts/import-history.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.48.1",
