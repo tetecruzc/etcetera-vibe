@@ -1,5 +1,6 @@
-import { Building2, Calendar, CreditCard, MessageSquare, Receipt, Search, Trash, User } from 'lucide-react';
+import { Building2, Calendar, CreditCard, Edit2, MessageSquare, Receipt, Search, Trash, User } from 'lucide-react';
 import { useState } from 'react';
+import NewSaleModal from './NewSaleModal';
 
 export default function SalesHistoryView({ 
   orders = [], 
@@ -7,10 +8,17 @@ export default function SalesHistoryView({
   products = [], 
   warehouses = [], 
   accounts = [],
-  onDeleteOrder
+  inventory = [],
+  onDeleteOrder,
+  onUpdateOrder
 }) {
   const [search, setSearch] = useState('');
   const [deletingId, setDeletingId] = useState(null);
+  const [editingOrder, setEditingOrder] = useState(null);
+
+  const handleEditClick = (order) => {
+    setEditingOrder(order);
+  };
 
   const handleDelete = async (orderId) => {
     if (!window.confirm('¿Estás seguro de que deseas eliminar esta venta? Esta acción devolverá el stock al inventario y restará el saldo a la cuenta.')) return;
@@ -115,6 +123,23 @@ export default function SalesHistoryView({
                     <span style={{ fontSize: '1.25rem', fontWeight: '800', color: 'var(--accent-dark)' }}>
                       ${Number(order.total_amount).toFixed(2)}
                     </span>
+                    <button 
+                      onClick={() => handleEditClick(order)}
+                      style={{
+                        background: 'transparent',
+                        border: 'none',
+                        color: 'var(--text-secondary)',
+                        cursor: 'pointer',
+                        padding: '4px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        borderRadius: '4px'
+                      }}
+                      title="Editar venta"
+                    >
+                      <Edit2 size={18} />
+                    </button>
                     <button 
                       onClick={() => handleDelete(order.id)}
                       disabled={deletingId === order.id}
@@ -227,6 +252,24 @@ export default function SalesHistoryView({
           })}
         </div>
       )}
+
+      {/* Modal de Edición de Venta */}
+      <NewSaleModal
+        isOpen={!!editingOrder}
+        onClose={() => setEditingOrder(null)}
+        products={products}
+        warehouses={warehouses}
+        inventory={inventory}
+        accounts={accounts}
+        initialOrder={editingOrder}
+        initialItems={editingOrder ? orderItems.filter(oi => oi.order_id === editingOrder.id) : []}
+        onSubmitSale={async (orderId, data) => {
+          if (onUpdateOrder) {
+            await onUpdateOrder(orderId, data);
+            return { success: true, order: { ...data, order_number: editingOrder.order_number } };
+          }
+        }}
+      />
     </div>
   );
 }

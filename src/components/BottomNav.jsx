@@ -23,7 +23,7 @@ export default function BottomNav({ activeTab, setActiveTab, onOpenNewSale }) {
       <button 
         className="bottom-tab sale-cta"
         onClick={onOpenNewSale}
-        aria-label="Registrar Nueva venta"
+        aria-label="Registrar nueva venta"
       >
         <Plus size={26} strokeWidth={2.5} />
       </button>

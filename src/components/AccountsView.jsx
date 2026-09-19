@@ -627,7 +627,7 @@ export default function AccountsView({
       {/* ── Header + Botones de acción ── */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px', flexWrap: 'wrap', gap: '10px' }}>
         <div>
-          <h2 style={{ fontSize: '1.25rem', fontWeight: '700' }}>Cuentas de Cobro</h2>
+          <h2 style={{ fontSize: '1.25rem', fontWeight: '700' }}>Cuentas de cobro</h2>
           <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
             Monitorea el dinero que ingresa por cada método de pago
           </p>

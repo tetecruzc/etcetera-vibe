@@ -9,26 +9,38 @@ export default function NewSaleModal({
   warehouses = [], 
   inventory = [], 
   accounts = [], 
-  onSubmitSale 
+  onSubmitSale,
+  initialOrder = null,
+  initialItems = []
 }) {
   if (!isOpen) return null;
 
+  const isEditMode = !!initialOrder;
+
   // Form State
-  const [customerName, setCustomerName] = useState('');
-  const [selectedAccountId, setSelectedAccountId] = useState(accounts[0]?.id || '');
-  const [notes, setNotes] = useState('');
+  const [customerName, setCustomerName] = useState(initialOrder ? initialOrder.customer_name : '');
+  const [selectedAccountId, setSelectedAccountId] = useState(initialOrder ? initialOrder.account_id : (accounts[0]?.id || ''));
+  const [notes, setNotes] = useState(initialOrder ? (initialOrder.notes || '') : '');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [successOrder, setSuccessOrder] = useState(null);
 
   // Line items state
-  const [items, setItems] = useState([
-    {
+  const [items, setItems] = useState(() => {
+    if (isEditMode && initialItems.length > 0) {
+      return initialItems.map(item => ({
+        productId: item.product_id,
+        warehouseId: item.warehouse_id,
+        quantity: item.quantity,
+        unitPrice: item.unit_price
+      }));
+    }
+    return [{
       productId: products[0]?.id || '',
       warehouseId: warehouses[0]?.id || '',
       quantity: 1,
       unitPrice: products[0]?.default_price || 120
-    }
-  ]);
+    }];
+  });
 
   // Helper para obtener el stock disponible de un producto en un almacén
   const getAvailableStock = (prodId, whId) => {
@@ -99,9 +111,19 @@ export default function NewSaleModal({
       return;
     }
 
-    // Validar stock disponible
+    // Validar stock disponible (ignorar stock del pedido actual en modo edición para no bloquearlo erróneamente, aunque idealmente deberíamos descontar la cantidad original)
     for (const item of items) {
-      const avail = getAvailableStock(item.productId, item.warehouseId);
+      // In edit mode, item.quantity could be higher than available stock, but the item itself might be returning some stock.
+      // We will do a simple check. If they increase quantity beyond available + original, it will trigger the warning.
+      // To keep it simple, we just use the warning.
+      let avail = getAvailableStock(item.productId, item.warehouseId);
+      if (isEditMode) {
+        const originalItem = initialItems.find(i => i.product_id === item.productId && i.warehouse_id === item.warehouseId);
+        if (originalItem) {
+          avail += originalItem.quantity;
+        }
+      }
+      
       const prod = products.find(p => p.id === item.productId);
       const wh = warehouses.find(w => w.id === item.warehouseId);
       if (item.quantity > avail) {
@@ -122,13 +144,24 @@ export default function NewSaleModal({
         subtotal: item.quantity * item.unitPrice
       }));
 
-      const result = await onSubmitSale({
-        customerName: customerName.trim(),
-        accountId: selectedAccountId,
-        items: lineItems,
-        notes: notes.trim(),
-        totalAmount
-      });
+      let result;
+      if (isEditMode) {
+        result = await onSubmitSale(initialOrder.id, {
+          customerName: customerName.trim(),
+          accountId: selectedAccountId,
+          items: lineItems,
+          notes: notes.trim(),
+          totalAmount
+        });
+      } else {
+        result = await onSubmitSale({
+          customerName: customerName.trim(),
+          accountId: selectedAccountId,
+          items: lineItems,
+          notes: notes.trim(),
+          totalAmount
+        });
+      }
 
       if (result?.success) {
         confetti({
@@ -179,9 +212,9 @@ export default function NewSaleModal({
               <ShoppingBag size={18} />
             </div>
             <div>
-              <h2 className="modal-title">Registrar Nueva venta</h2>
+              <h2 className="modal-title">{isEditMode ? 'Editar venta' : 'Registrar nueva venta'}</h2>
               <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
-                Descuento en tiempo real y abono a cuenta
+                {isEditMode ? 'Modifica los detalles del pedido' : 'Descuento en tiempo real y abono a cuenta'}
               </span>
             </div>
           </div>
@@ -206,7 +239,7 @@ export default function NewSaleModal({
             }}>
               <CheckCircle2 size={36} />
             </div>
-            <h3 style={{ fontSize: '1.4rem', marginBottom: '8px' }}>¡Venta Registrada con Éxito!</h3>
+            <h3 style={{ fontSize: '1.4rem', marginBottom: '8px' }}>{isEditMode ? '¡Venta Actualizada con Éxito!' : '¡Venta Registrada con Éxito!'}</h3>
             <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginBottom: '24px' }}>
               Pedido <strong>#{successOrder.order_number}</strong> para <strong>{successOrder.customer_name}</strong> por un total de <strong>${Number(successOrder.total_amount).toFixed(2)}</strong>.
             </p>
@@ -455,7 +488,7 @@ export default function NewSaleModal({
               >
                 {isSubmitting ? 'Procesando...' : (
                   <>
-                    <span>Confirmar venta</span>
+                    <span>{isEditMode ? 'Guardar cambios' : 'Confirmar venta'}</span>
                     <ArrowRight size={16} />
                   </>
                 )}

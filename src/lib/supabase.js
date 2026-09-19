@@ -132,6 +132,94 @@ export async function createSaleTransaction({ customerName, accountId, items, no
   return { success: true, order: newOrder };
 }
 
+export async function updateSaleTransaction(orderId, { customerName, accountId, items, notes, totalAmount }) {
+  // 1. Fetch old order and items
+  const { data: oldOrder } = await supabase.from('orders').select('*').eq('id', orderId).single();
+  const { data: oldItems } = await supabase.from('order_items').select('*').eq('order_id', orderId);
+
+  // 2. Revert old inventory
+  if (oldItems && oldItems.length > 0) {
+    for (const item of oldItems) {
+      const { data: invRow } = await supabase.from('inventory')
+        .select('stock').eq('product_id', item.product_id).eq('warehouse_id', item.warehouse_id).maybeSingle();
+      const currentStock = invRow?.stock || 0;
+      await supabase.from('inventory').upsert({
+        product_id: item.product_id,
+        warehouse_id: item.warehouse_id,
+        stock: currentStock + item.quantity,
+        updated_at: new Date().toISOString()
+      }, { onConflict: 'product_id,warehouse_id' });
+    }
+  }
+
+  // 3. Revert old account balance
+  if (oldOrder.account_id && oldOrder.total_amount) {
+    const { data: accRow } = await supabase.from('accounts')
+      .select('balance').eq('id', oldOrder.account_id).maybeSingle();
+    if (accRow) {
+      const revertedBalance = Math.max(0, Number(accRow.balance) - Number(oldOrder.total_amount));
+      await supabase.from('accounts').update({ balance: revertedBalance }).eq('id', oldOrder.account_id);
+    }
+  }
+
+  // 4. Delete old transactions and items
+  await supabase.from('account_transactions').delete().eq('order_id', orderId);
+  await supabase.from('order_items').delete().eq('order_id', orderId);
+
+  // 5. Update Order
+  const { data: updatedOrder, error: orderErr } = await supabase.from('orders').update({
+    customer_name: customerName,
+    account_id: accountId,
+    total_amount: totalAmount,
+    notes: notes || '',
+  }).eq('id', orderId).select().single();
+
+  if (orderErr) throw new Error(`Error al actualizar pedido: ${orderErr.message}`);
+
+  // 6. Insert new items
+  const itemsToInsert = items.map(item => ({
+    order_id: orderId,
+    product_id: item.productId,
+    warehouse_id: item.warehouseId,
+    quantity: item.quantity,
+    unit_price: item.unitPrice,
+    subtotal: item.subtotal
+  }));
+  await supabase.from('order_items').insert(itemsToInsert);
+
+  // 7. Deduct new inventory
+  for (const item of items) {
+    const { data: invRow } = await supabase.from('inventory')
+      .select('stock').eq('product_id', item.productId).eq('warehouse_id', item.warehouseId).maybeSingle();
+    const currentStock = invRow?.stock || 0;
+    const newStock = Math.max(0, currentStock - item.quantity);
+    await supabase.from('inventory').upsert({
+      product_id: item.productId,
+      warehouse_id: item.warehouseId,
+      stock: newStock,
+      updated_at: new Date().toISOString()
+    }, { onConflict: 'product_id,warehouse_id' });
+  }
+
+  // 8. Add to new account balance and insert new transaction
+  if (accountId) {
+    const { data: accRow } = await supabase.from('accounts')
+      .select('balance').eq('id', accountId).single();
+    const newBalance = Number(accRow?.balance || 0) + Number(totalAmount);
+    await supabase.from('accounts').update({ balance: newBalance }).eq('id', accountId);
+
+    await supabase.from('account_transactions').insert([{
+      account_id: accountId,
+      type: 'sale',
+      amount: totalAmount,
+      order_id: orderId,
+      notes: `Venta #${updatedOrder.order_number} a ${customerName}`
+    }]);
+  }
+
+  return { success: true, order: updatedOrder };
+}
+
 export async function deleteSaleTransaction(orderId) {
   // 1. Fetch order details
   const { data: order } = await supabase

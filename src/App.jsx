@@ -20,7 +20,8 @@ import {
     saveWarehouse,
     transferBetweenAccounts,
     transferStock,
-    updateProductStock
+    updateProductStock,
+    updateSaleTransaction
 } from './lib/supabase';
 
 export default function App() {
@@ -127,6 +128,12 @@ export default function App() {
     await loadData();
   };
 
+  // Handler: Editar venta (Pedido)
+  const handleUpdateOrder = async (orderId, orderData) => {
+    await updateSaleTransaction(orderId, orderData);
+    await loadData();
+  };
+
   // Handler: Guardar Producto
   const handleSaveProduct = async (prodData) => {
     await saveProduct(prodData);
@@ -200,7 +207,9 @@ export default function App() {
                 products={data.products}
                 warehouses={data.warehouses}
                 accounts={data.accounts}
+                inventory={data.inventory}
                 onDeleteOrder={handleDeleteOrder}
+                onUpdateOrder={handleUpdateOrder}
               />
             )}
 
