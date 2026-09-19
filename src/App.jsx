@@ -60,6 +60,11 @@ export default function App() {
     loadData();
   }, [loadData]);
 
+  // Hacer scroll al inicio cuando se cambia de pestaña (especialmente útil en mobile)
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [activeTab]);
+
   // Handler: Crear Venta
   const handleSaleSubmit = async (saleData) => {
     const res = await createSaleTransaction(saleData);
