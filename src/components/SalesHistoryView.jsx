@@ -203,7 +203,7 @@ export default function SalesHistoryView({
                     >
                       <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                         <img 
-                          src={getProductImage(item.product_id)} 
+                          src={(getProductImage(item.product_id) || '').replace(/^\/+/, import.meta.env.BASE_URL)} 
                           alt="" 
                           style={{ width: '32px', height: '32px', objectFit: 'contain' }} 
                         />

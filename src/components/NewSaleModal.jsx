@@ -345,7 +345,7 @@ export default function NewSaleModal({
                         <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
                           {currentProd?.image_url && (
                             <img 
-                              src={currentProd.image_url} 
+                              src={currentProd.image_url.replace(/^\/+/, import.meta.env.BASE_URL)} 
                               alt="" 
                               style={{ width: '40px', height: '40px', objectFit: 'contain', background: '#FFFFFF', borderRadius: '6px', padding: '2px', border: '1px solid var(--border-subtle)' }} 
                             />

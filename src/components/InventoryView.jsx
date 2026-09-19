@@ -204,7 +204,7 @@ export default function InventoryView({
                 {/* Product Image */}
                 <div className="product-img-box">
                   <img
-                    src={product.image_url || '/assets/classic-blue.png'}
+                    src={(product.image_url || '/assets/classic-blue.png').replace(/^\/+/, import.meta.env.BASE_URL)}
                     alt={product.name}
                     className="product-img"
                     loading="lazy"
