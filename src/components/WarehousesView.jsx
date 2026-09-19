@@ -26,8 +26,8 @@ export default function WarehousesView({
   return (
     <div>
       {/* Header & Add Button */}
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-        <div>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '12px', marginBottom: '20px' }}>
+        <div style={{ flex: '1 1 200px' }}>
           <h2 style={{ fontSize: '1.25rem', fontWeight: '700' }}>Gestión de almacenes</h2>
           <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
             Administra tus sedes de inventario (Casa Tony, Casa Sergio y nuevos almacenes)

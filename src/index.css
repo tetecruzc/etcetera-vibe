@@ -958,3 +958,189 @@ h1, h2, h3, h4 {
   background: var(--court-green-light);
   color: var(--court-green);
 }
+
+/* Mobile Visibility Helpers */
+.show-on-mobile {
+  display: none !important;
+}
+.flex-on-mobile {
+  display: none !important;
+}
+
+@media (max-width: 639px) {
+  .hide-on-mobile {
+    display: none !important;
+  }
+  .show-on-mobile {
+    display: inline-block !important;
+  }
+  .flex-on-mobile {
+    display: flex !important;
+  }
+  span.show-on-mobile, div.show-on-mobile {
+    display: inherit !important; /* let it inherit if needed, but display block/inline is safer. Let's just use block for div, inline for span. Actually, inherit from media query might be complex. Let's just define inline. */
+  }
+}
+/* Refining the show/hide */
+@media (max-width: 639px) {
+  .show-on-mobile {
+    display: initial !important;
+  }
+  
+  /* Compact product card text on mobile */
+  .product-title {
+    font-size: 0.85rem;
+    margin-bottom: 2px;
+  }
+  .product-sku {
+    font-size: 0.6rem;
+    margin-bottom: 6px;
+  }
+  .product-price-row {
+    margin-top: 0;
+  }
+  .product-info {
+    padding: 12px 8px;
+  }
+  
+  /* Compact transaction history on mobile */
+  .tx-card {
+    padding: 8px 10px !important;
+    gap: 8px !important;
+  }
+  .tx-icon-wrapper {
+    width: 28px !important;
+    height: 28px !important;
+    font-size: 0.85rem !important;
+  }
+  .tx-meta {
+    gap: 4px !important;
+  }
+  .tx-title {
+    font-size: 0.82rem !important;
+  }
+  
+  /* Compact Accounts View on mobile */
+  .balance-banner {
+    padding: 16px 14px !important;
+    margin-bottom: 12px !important;
+  }
+  .balance-amount {
+    font-size: 1.8rem !important;
+    margin: 2px 0 2px !important;
+  }
+  .accounts-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+  }
+  .account-card {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    padding: 10px !important;
+    gap: 6px !important;
+  }
+  .account-card-header {
+    width: 100%;
+    align-items: flex-start !important;
+  }
+  .account-card-header .badge {
+    display: none !important; /* Hide currency badge to save space */
+  }
+  .account-card-header strong {
+    font-size: 0.8rem !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .account-card-balance {
+    text-align: left !important;
+    width: 100%;
+  }
+  .account-card-amount {
+    font-size: 1.15rem !important;
+  }
+  .account-card-btn-text {
+    display: none !important; /* Hide "Ajustar" text */
+  }
+  .account-card > div:last-child {
+    /* Actions container */
+    width: 100%;
+    margin-top: 2px !important;
+  }
+  .account-card > div:last-child button {
+    padding: 5px !important;
+    flex: 1 !important;
+  }
+  
+  /* Sale Modal Mobile */
+  .order-item-controls {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 12px 10px !important;
+  }
+  .sale-modal-footer {
+    flex-wrap: wrap !important;
+    gap: 12px !important;
+  }
+  .sale-modal-total {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-right: 0 !important;
+    margin-bottom: 4px !important;
+  }
+  .sale-modal-footer > button {
+    flex: 1 !important;
+    min-width: 0 !important;
+  }
+  
+  /* Sales History Mobile */
+  .sale-card {
+    padding: 12px 14px !important;
+  }
+  .sale-card-header {
+    flex-wrap: nowrap !important;
+    justify-content: space-between !important;
+  }
+  .sale-badge {
+    padding: 3px 6px !important;
+    font-size: 0.65rem !important;
+  }
+  .sale-card-date {
+    font-size: 0.7rem !important;
+  }
+  .sale-card-amount {
+    font-size: 1.15rem !important;
+  }
+  .sale-card-actions {
+    gap: 6px !important;
+  }
+  .sale-card-actions button {
+    padding: 2px !important;
+  }
+  .sale-client-info {
+    flex-direction: column !important;
+    gap: 6px !important;
+    padding: 8px 12px !important;
+  }
+  .sale-client-info > div {
+    font-size: 0.8rem !important;
+  }
+  .sale-item-row {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    padding: 10px 12px !important;
+    gap: 8px !important;
+  }
+  .sale-item-row-right {
+    text-align: left !important;
+    display: flex !important;
+    width: 100% !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+  }
+}
+
+.sale-modal-total {
+  margin-right: auto;
+}

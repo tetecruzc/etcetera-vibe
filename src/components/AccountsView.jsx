@@ -117,7 +117,7 @@ function AdjustBalanceModal({ account, onConfirm, onCancel, loading }) {
             }}>
               <span style={{ fontWeight: '600', fontSize: '0.95rem' }}>{account.name}</span>
               <span style={{ fontSize: '1.1rem', fontWeight: '800', color: 'var(--accent-dark)' }}>
-                ${Number(account.balance).toFixed(2)}
+                {account.currency === 'VES' ? 'Bs.' : '$'}{Number(account.balance).toFixed(2)}
               </span>
             </div>
 
@@ -584,7 +584,7 @@ export default function AccountsView({
       )}
 
       {/* ── Banner Total ── */}
-      <div style={{
+      <div className="balance-banner" style={{
         background: 'linear-gradient(135deg, #1E1B18 0%, #302A23 100%)',
         color: '#FFFFFF',
         borderRadius: 'var(--radius-lg)',
@@ -595,7 +595,7 @@ export default function AccountsView({
         boxShadow: 'var(--shadow-md)'
       }}>
         <div style={{ position: 'relative', zIndex: 2 }}>
-          <span style={{
+          <span className="balance-title" style={{
             fontSize: '0.75rem',
             letterSpacing: '0.15em',
             textTransform: 'uppercase',
@@ -604,7 +604,7 @@ export default function AccountsView({
           }}>
             Balance Total Consolidado
           </span>
-          <div style={{
+          <div className="balance-amount" style={{
             fontSize: '2.4rem',
             fontWeight: '800',
             fontFamily: 'var(--font-sans)',
@@ -618,15 +618,17 @@ export default function AccountsView({
             <span>🏷️ {totalSalesCount} ventas</span>
           </div>
         </div>
-        <Wallet size={120} style={{
-          position: 'absolute', right: '-15px', bottom: '-25px',
-          opacity: 0.08, color: '#FFFFFF'
-        }} />
+        <div className="hide-on-mobile">
+          <Wallet size={120} style={{
+            position: 'absolute', right: '-15px', bottom: '-25px',
+            opacity: 0.08, color: '#FFFFFF'
+          }} />
+        </div>
       </div>
 
       {/* ── Header + Botones de acción ── */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px', flexWrap: 'wrap', gap: '10px' }}>
-        <div>
+        <div className="hide-on-mobile">
           <h2 style={{ fontSize: '1.25rem', fontWeight: '700' }}>Cuentas de cobro</h2>
           <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
             Monitorea el dinero que ingresa por cada método de pago
@@ -655,7 +657,7 @@ export default function AccountsView({
       </div>
 
       {/* ── Cards de Cuentas ── */}
-      <div style={{
+      <div className="accounts-grid" style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))',
         gap: '16px',
@@ -667,9 +669,9 @@ export default function AccountsView({
           const relatedOrders = orders.filter(o => o.account_id === acc.id);
 
           return (
-            <div key={acc.id} className="card" style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            <div key={acc.id} className="card account-card" style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
               {/* Header tarjeta */}
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+              <div className="account-card-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <div style={{
                     width: '34px', height: '34px',
@@ -686,17 +688,17 @@ export default function AccountsView({
               </div>
 
               {/* Saldo */}
-              <div>
-                <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+              <div className="account-card-balance">
+                <span className="hide-on-mobile" style={{ fontSize: '0.72rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                   Saldo actual
                 </span>
-                <div style={{ fontSize: '1.5rem', fontWeight: '800', color: 'var(--text-primary)' }}>
-                  ${bal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                <div className="account-card-amount" style={{ fontSize: '1.5rem', fontWeight: '800', color: 'var(--text-primary)' }}>
+                  {acc.currency === 'VES' ? 'Bs.' : '$'}{bal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                 </div>
               </div>
 
               {/* Barra participación */}
-              <div>
+              <div className="hide-on-mobile">
                 <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.72rem', color: 'var(--text-muted)', marginBottom: '4px' }}>
                   <span>Participación</span>
                   <span>{pct}%</span>
@@ -707,7 +709,7 @@ export default function AccountsView({
               </div>
 
               {/* Footer */}
-              <div style={{
+              <div className="hide-on-mobile" style={{
                 fontSize: '0.76rem', color: 'var(--text-secondary)',
                 borderTop: '1px solid var(--border-subtle)',
                 paddingTop: '8px', marginTop: 'auto',
@@ -743,10 +745,11 @@ export default function AccountsView({
                   onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border-subtle)'; e.currentTarget.style.color = 'var(--text-secondary)'; }}
                 >
                   <RefreshCw size={13} />
-                  Ajustar
+                  <span className="account-card-btn-text">Ajustar</span>
                 </button>
                 <button
                   id={`btn-delete-${acc.id}`}
+                  className="hide-on-mobile"
                   onClick={() => setDeleteTarget(acc)}
                   title="Eliminar cuenta"
                   style={{
@@ -935,7 +938,7 @@ export default function AccountsView({
                 const amtColor    = isNeg ? '#e53e3e' : (amount > 0 ? '#22c55e' : 'var(--text-secondary)');
                 const amtSign     = isNeg ? '-' : (amount > 0 ? '+' : '');
                 const dateStr     = tx.created_at
-                  ? new Date(tx.created_at).toLocaleDateString('es-VE', { day: '2-digit', month: 'short', year: 'numeric' })
+                  ? new Date(tx.created_at).toLocaleDateString('es-VE', { day: '2-digit', month: '2-digit', year: '2-digit' })
                   : '—';
                 const linkedOrder = tx.order_id ? orderMap[tx.order_id] : null;
                 const accName     = accMap[tx.account_id];
@@ -944,6 +947,7 @@ export default function AccountsView({
                 return (
                   <div
                     key={tx.id}
+                    className="tx-card"
                     style={{
                       display: 'flex',
                       alignItems: 'center',
@@ -955,7 +959,9 @@ export default function AccountsView({
                     }}
                   >
                     {/* Icono tipo */}
-                    <div style={{
+                    <div 
+                      className="tx-icon-wrapper"
+                      style={{
                       width: '36px', height: '36px', flexShrink: 0,
                       borderRadius: '50%',
                       background: cfg.bg,
@@ -967,11 +973,12 @@ export default function AccountsView({
 
                     {/* Info central */}
                     <div style={{ flex: 1, minWidth: 0 }}>
-                      <div style={{ fontWeight: '600', fontSize: '0.88rem', color: 'var(--text-primary)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                      <div className="tx-title" style={{ fontWeight: '600', fontSize: '0.88rem', color: 'var(--text-primary)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                         {displayDesc}
                       </div>
-                      <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '3px', display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap' }}>
+                      <div className="tx-meta" style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '3px', display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap' }}>
                         <span
+                          className="hide-on-mobile"
                           style={{
                             background: cfg.bg,
                             color: cfg.color,
@@ -984,14 +991,16 @@ export default function AccountsView({
                           {cfg.label}
                         </span>
                         {linkedOrder?.order_number && (
-                          <span style={{
-                            background: 'var(--bg-card-subtle)',
-                            border: '1px solid var(--border-subtle)',
-                            padding: '1px 6px',
-                            borderRadius: '4px',
-                            fontSize: '0.7rem',
-                            fontFamily: 'monospace'
-                          }}>
+                          <span 
+                            className="hide-on-mobile"
+                            style={{
+                              background: 'var(--bg-card-subtle)',
+                              border: '1px solid var(--border-subtle)',
+                              padding: '1px 6px',
+                              borderRadius: '4px',
+                              fontSize: '0.7rem',
+                              fontFamily: 'monospace'
+                            }}>
                             #{linkedOrder.order_number}
                           </span>
                         )}

@@ -108,92 +108,88 @@ export default function SalesHistoryView({
             });
 
             return (
-              <div key={order.id} className="card" style={{ padding: '18px' }}>
-                {/* Top Info: Order ID, Date, Amount */}
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '8px', marginBottom: '12px' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <span className="badge badge-dark">#{order.order_number}</span>
-                    <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                      <Calendar size={13} />
-                      {dateStr}
-                    </span>
+              <div key={order.id} className="card sale-card" style={{ padding: '18px' }}>
+                {/* Top Info Compacted: Customer, Order, Date, Account & Amount, Actions */}
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px', marginBottom: '14px' }}>
+                  {/* Left Side: Customer, Badge, Date, Account */}
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px', flexWrap: 'wrap' }}>
+                      <strong style={{ fontSize: '1rem', color: 'var(--text-primary)', lineHeight: '1.2', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                        {order.customer_name}
+                      </strong>
+                      <span className="sale-badge-compact" style={{ fontSize: '0.65rem', color: 'var(--text-secondary)', background: 'var(--bg-app)', padding: '2px 6px', borderRadius: '4px', border: '1px solid var(--border-subtle)', fontFamily: 'monospace' }}>
+                        #{order.order_number.replace('ETC-', '')}
+                      </span>
+                    </div>
+                    
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.75rem', color: 'var(--text-muted)', flexWrap: 'wrap' }}>
+                      <span style={{ display: 'flex', alignItems: 'center', gap: '3px', whiteSpace: 'nowrap' }}>
+                        <Calendar size={11} />
+                        {dateStr.split(',')[0]} {/* Solo la fecha, sin la hora para ahorrar espacio en móvil */}
+                      </span>
+                      <span>•</span>
+                      <span style={{ display: 'flex', alignItems: 'center', gap: '4px', color: 'var(--text-secondary)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                        <CreditCard size={11} />
+                        {getAccountName(order.account_id)}
+                      </span>
+                    </div>
                   </div>
 
-                  <div style={{ textAlign: 'right', display: 'flex', alignItems: 'center', gap: '12px' }}>
-                    <span style={{ fontSize: '1.25rem', fontWeight: '800', color: 'var(--accent-dark)' }}>
+                  {/* Right Side: Amount & Actions */}
+                  <div style={{ textAlign: 'right', display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '4px', flexShrink: 0 }}>
+                    <span style={{ fontSize: '1.2rem', fontWeight: '800', color: 'var(--accent-dark)', lineHeight: '1.1' }}>
                       ${Number(order.total_amount).toFixed(2)}
                     </span>
-                    <button 
-                      onClick={() => handleEditClick(order)}
-                      style={{
-                        background: 'transparent',
-                        border: 'none',
-                        color: 'var(--text-secondary)',
-                        cursor: 'pointer',
-                        padding: '4px',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        borderRadius: '4px'
-                      }}
-                      title="Editar venta"
-                    >
-                      <Edit2 size={18} />
-                    </button>
-                    <button 
-                      onClick={() => handleDelete(order.id)}
-                      disabled={deletingId === order.id}
-                      style={{
-                        background: 'transparent',
-                        border: 'none',
-                        color: deletingId === order.id ? 'var(--text-muted)' : 'var(--danger, #ef4444)',
-                        cursor: deletingId === order.id ? 'not-allowed' : 'pointer',
-                        padding: '4px',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        borderRadius: '4px'
-                      }}
-                      title="Eliminar Venta"
-                    >
-                      <Trash size={18} />
-                    </button>
-                  </div>
-                </div>
-
-                {/* Customer & Account Details */}
-                <div style={{
-                  display: 'flex',
-                  flexWrap: 'wrap',
-                  gap: '16px',
-                  background: 'var(--bg-card-subtle)',
-                  padding: '10px 14px',
-                  borderRadius: 'var(--radius-sm)',
-                  fontSize: '0.84rem',
-                  marginBottom: '14px'
-                }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                    <User size={15} style={{ color: 'var(--accent-gold)' }} />
-                    <span style={{ color: 'var(--text-muted)' }}>Cliente:</span>
-                    <strong>{order.customer_name}</strong>
-                  </div>
-
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                    <CreditCard size={15} style={{ color: 'var(--court-green)' }} />
-                    <span style={{ color: 'var(--text-muted)' }}>Ingresó a:</span>
-                    <strong>{getAccountName(order.account_id)}</strong>
+                    <div style={{ display: 'flex', gap: '4px' }}>
+                      <button 
+                        onClick={() => handleEditClick(order)}
+                        style={{
+                          background: 'transparent',
+                          border: 'none',
+                          color: 'var(--text-secondary)',
+                          cursor: 'pointer',
+                          padding: '4px',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          borderRadius: '4px'
+                        }}
+                        title="Editar venta"
+                      >
+                        <Edit2 size={14} />
+                      </button>
+                      <button 
+                        onClick={() => handleDelete(order.id)}
+                        disabled={deletingId === order.id}
+                        style={{
+                          background: 'transparent',
+                          border: 'none',
+                          color: deletingId === order.id ? 'var(--text-muted)' : 'var(--danger, #ef4444)',
+                          cursor: deletingId === order.id ? 'not-allowed' : 'pointer',
+                          padding: '4px',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          borderRadius: '4px'
+                        }}
+                        title="Eliminar Venta"
+                      >
+                        <Trash size={14} />
+                      </button>
+                    </div>
                   </div>
                 </div>
 
                 {/* Purchased Items & Warehouses */}
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '12px' }}>
-                  <span style={{ fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--text-muted)', fontWeight: '700' }}>
+                  <span className="hide-on-mobile" style={{ fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--text-muted)', fontWeight: '700' }}>
                     Artículos Descontados ({items.length})
                   </span>
                   
                   {items.map((item, idx) => (
                     <div 
                       key={idx} 
+                      className="sale-item-row"
                       style={{
                         display: 'flex',
                         alignItems: 'center',
@@ -220,7 +216,7 @@ export default function SalesHistoryView({
                         </div>
                       </div>
 
-                      <div style={{ textAlign: 'right' }}>
+                      <div className="sale-item-row-right" style={{ textAlign: 'right' }}>
                         <div style={{ fontWeight: '600' }}>${Number(item.subtotal || item.unit_price * item.quantity).toFixed(2)}</div>
                         <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>(${Number(item.unit_price).toFixed(2)} c/u)</div>
                       </div>

@@ -1,4 +1,4 @@
-import { ArrowLeftRight, Edit3, Layers, MapPin, Package, Search } from 'lucide-react';
+import { ArrowLeftRight, Edit3, Filter, Layers, MapPin, Package, Search, X } from 'lucide-react';
 import { useState } from 'react';
 
 export default function InventoryView({
@@ -13,6 +13,7 @@ export default function InventoryView({
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedWarehouseFilter, setSelectedWarehouseFilter] = useState('ALL');
   const [selectedCategory, setSelectedCategory] = useState('ALL');
+  const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
 
   // Modal states for Quick Stock Adjust & Transfer
   const [editingProduct, setEditingProduct] = useState(null);
@@ -70,7 +71,6 @@ export default function InventoryView({
             </div>
           </div>
           <div className="stat-value">{totalStockAll} <span style={{ fontSize: '0.9rem', fontWeight: '400', color: 'var(--text-muted)' }}>unid.</span></div>
-          <div className="stat-subtext">Disponibles para venta</div>
         </div>
 
         <div className="stat-card accent-green">
@@ -81,7 +81,6 @@ export default function InventoryView({
             </div>
           </div>
           <div className="stat-value">{totalStockTony} <span style={{ fontSize: '0.9rem', fontWeight: '400', color: 'var(--text-muted)' }}>unid.</span></div>
-          <div className="stat-subtext">{warehouses[0]?.name || 'Sede Principal'}</div>
         </div>
 
         <div className="stat-card accent-gold">
@@ -92,18 +91,19 @@ export default function InventoryView({
             </div>
           </div>
           <div className="stat-value">{totalStockSergio} <span style={{ fontSize: '0.9rem', fontWeight: '400', color: 'var(--text-muted)' }}>unid.</span></div>
-          <div className="stat-subtext">{warehouses[1]?.name || 'Sede Sergio'}</div>
         </div>
 
         <div className="stat-card">
           <div className="stat-header">
-            <span className="stat-label">Valor Catálogo</span>
+            <span className="stat-label">
+              <span className="hide-on-mobile">Valor Catálogo</span>
+              <span className="show-on-mobile">$ Catálogo</span>
+            </span>
             <div className="stat-icon-badge">
               <Layers size={15} />
             </div>
           </div>
           <div className="stat-value">${totalInventoryValue.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}</div>
-          <div className="stat-subtext">{products.length} modelos de bolsos</div>
         </div>
       </div>
 
@@ -117,20 +117,29 @@ export default function InventoryView({
         marginBottom: '20px'
       }}>
         {/* Search */}
-        <div style={{ position: 'relative', flex: '1 1 240px', maxWidth: '400px' }}>
-          <Search size={16} style={{ position: 'absolute', left: '14px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
-          <input
-            type="text"
-            className="form-input"
-            placeholder="Buscar por bolso o SKU..."
-            value={searchQuery}
-            onChange={e => setSearchQuery(e.target.value)}
-            style={{ paddingLeft: '38px', borderRadius: 'var(--radius-full)' }}
-          />
+        <div style={{ position: 'relative', flex: '1 1 240px', maxWidth: '400px', display: 'flex', gap: '8px' }}>
+          <button 
+            className="btn-secondary flex-on-mobile"
+            onClick={() => setIsMobileFilterOpen(true)}
+            style={{ padding: '0 12px', borderRadius: 'var(--radius-full)' }}
+          >
+            <Filter size={18} />
+          </button>
+          <div style={{ position: 'relative', flex: 1 }}>
+            <Search size={16} style={{ position: 'absolute', left: '14px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
+            <input
+              type="text"
+              className="form-input"
+              placeholder="Buscar por bolso o SKU..."
+              value={searchQuery}
+              onChange={e => setSearchQuery(e.target.value)}
+              style={{ paddingLeft: '38px', borderRadius: 'var(--radius-full)', width: '100%' }}
+            />
+          </div>
         </div>
 
         {/* Warehouse Filter Dropdown */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+        <div className="hide-on-mobile" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
           <select
             className="form-select"
             value={selectedWarehouseFilter}
@@ -144,21 +153,11 @@ export default function InventoryView({
               </option>
             ))}
           </select>
-
-          {/* Action to create new bag */}
-          {/* <button 
-            className="btn-secondary" 
-            onClick={onOpenNewProduct}
-            style={{ padding: '9px 16px', fontSize: '0.82rem' }}
-          >
-            <Plus size={15} />
-            <span>Nuevo Bolso</span>
-          </button> */}
         </div>
       </div>
 
       {/* Category Pills */}
-      <div style={{ display: 'flex', gap: '8px', overflowX: 'auto', paddingBottom: '12px', marginBottom: '16px' }}>
+      <div className="hide-on-mobile" style={{ display: 'flex', gap: '8px', overflowX: 'auto', paddingBottom: '12px', marginBottom: '16px' }}>
         <button
           className={`badge ${selectedCategory === 'ALL' ? 'badge-dark' : 'badge-gold'}`}
           onClick={() => setSelectedCategory('ALL')}
@@ -225,14 +224,14 @@ export default function InventoryView({
                   <span className="product-sku">{product.sku}</span>
 
                   {/* Stock Breakdown per Warehouse */}
-                  <div className="stock-breakdown">
+                  <div className="stock-breakdown" style={{ padding: '6px 8px', gap: '2px', marginTop: '4px' }}>
                     <div className="warehouse-stock-line">
                       <span className="warehouse-name-label">
                         <span className="warehouse-dot dot-tony"></span>
                         Casa Tony
                       </span>
                       <strong style={{ color: stockTony > 0 ? 'var(--text-primary)' : 'var(--alert-red)' }}>
-                        {stockTony} unid.
+                        {stockTony} <span className="hide-on-mobile">unid.</span>
                       </strong>
                     </div>
                     <div className="warehouse-stock-line">
@@ -241,19 +240,19 @@ export default function InventoryView({
                         Casa Sergio
                       </span>
                       <strong style={{ color: stockSergio > 0 ? 'var(--text-primary)' : 'var(--alert-red)' }}>
-                        {stockSergio} unid.
+                        {stockSergio} <span className="hide-on-mobile">unid.</span>
                       </strong>
                     </div>
                   </div>
 
                   {/* Price & Action Buttons */}
-                  <div className="product-price-row">
+                  <div className="product-price-row" style={{ borderBottom: 'none', paddingBottom: 0, marginTop: '8px', paddingTop: '8px' }}>
                     <div>
-                      <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', display: 'block' }}>PVP Sugerido</span>
+                      <span className="hide-on-mobile" style={{ fontSize: '0.7rem', color: 'var(--text-muted)', display: 'block' }}>PVP Sugerido</span>
                       <span className="product-price">${Number(product.default_price).toFixed(2)}</span>
                     </div>
 
-                    <div style={{ display: 'flex', gap: '4px' }}>
+                    <div className="hide-on-mobile" style={{ display: 'flex', gap: '4px' }}>
                       <button
                         className="modal-close-btn"
                         style={{ width: '32px', height: '32px' }}
@@ -277,6 +276,32 @@ export default function InventoryView({
                         <Edit3 size={14} />
                       </button>
                     </div>
+                  </div>
+
+                  {/* Action Buttons Mobile */}
+                  <div className="flex-on-mobile" style={{ gap: '1px', marginTop: '8px', overflow: 'hidden', borderRadius: 'var(--radius-sm)' }}>
+                    <button
+                      style={{ flex: 1, display: 'flex', alignItems: 'center', gap: '4px', padding: '6px', fontSize: '0.75rem', justifyContent: 'center', minHeight: '32px', border: 'none', background: 'var(--bg-card-subtle)', color: 'var(--text-secondary)', borderRadius: '0' }}
+                      title="Transferir entre almacenes"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setTransferringProduct(product);
+                      }}
+                    >
+                      <ArrowLeftRight size={13} />
+                      <span>Mover</span>
+                    </button>
+                    <button
+                      style={{ flex: 1, display: 'flex', alignItems: 'center', gap: '4px', padding: '6px', fontSize: '0.75rem', justifyContent: 'center', minHeight: '32px', border: 'none', background: 'var(--bg-card-subtle)', color: 'var(--text-secondary)', borderRadius: '0' }}
+                      title="Ajustar stock de este bolso"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setEditingProduct(product);
+                      }}
+                    >
+                      <Edit3 size={13} />
+                      <span>Ajustar</span>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -320,6 +345,77 @@ export default function InventoryView({
             }
           }}
         />
+      )}
+      {/* Mobile Filters Modal */}
+      {isMobileFilterOpen && (
+        <div className="modal-overlay" onClick={() => setIsMobileFilterOpen(false)}>
+          <div className="modal-sheet" onClick={e => e.stopPropagation()}>
+            <div className="sheet-handle"></div>
+            <div className="modal-header">
+              <h3 className="modal-title">Filtros</h3>
+              <button className="modal-close-btn" onClick={() => setIsMobileFilterOpen(false)}>
+                <X size={18} />
+              </button>
+            </div>
+            <div className="modal-body" style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+              <div className="form-group">
+                <label className="form-label">Almacén</label>
+                <select
+                  className="form-select"
+                  value={selectedWarehouseFilter}
+                  onChange={e => {
+                    setSelectedWarehouseFilter(e.target.value);
+                    setIsMobileFilterOpen(false);
+                  }}
+                  style={{ width: '100%', padding: '12px', fontSize: '1rem' }}
+                >
+                  <option value="ALL">📍 Todos los Almacenes</option>
+                  {warehouses.map(w => (
+                    <option key={w.id} value={w.id}>
+                      📍 Solo {w.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <div className="form-group">
+                <label className="form-label">Categoría</label>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
+                  <button
+                    className={`badge ${selectedCategory === 'ALL' ? 'badge-dark' : 'badge-gold'}`}
+                    onClick={() => {
+                      setSelectedCategory('ALL');
+                      setIsMobileFilterOpen(false);
+                    }}
+                    style={{ cursor: 'pointer', padding: '10px 16px', fontSize: '0.9rem', border: 'none', flex: '1 1 40%' }}
+                  >
+                    Todos ({products.length})
+                  </button>
+                  <button
+                    className={`badge ${selectedCategory === 'Bolsos de Tenis' ? 'badge-dark' : 'badge-gold'}`}
+                    onClick={() => {
+                      setSelectedCategory('Bolsos de Tenis');
+                      setIsMobileFilterOpen(false);
+                    }}
+                    style={{ cursor: 'pointer', padding: '10px 16px', fontSize: '0.9rem', border: 'none', flex: '1 1 40%' }}
+                  >
+                    Bolsos de Tenis
+                  </button>
+                  <button
+                    className={`badge ${selectedCategory === 'Bolsos de Pickleball' ? 'badge-dark' : 'badge-gold'}`}
+                    onClick={() => {
+                      setSelectedCategory('Bolsos de Pickleball');
+                      setIsMobileFilterOpen(false);
+                    }}
+                    style={{ cursor: 'pointer', padding: '10px 16px', fontSize: '0.9rem', border: 'none', flex: '1 1 40%' }}
+                  >
+                    Bolsos de Pickleball
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );

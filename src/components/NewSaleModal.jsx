@@ -213,7 +213,7 @@ export default function NewSaleModal({
             </div>
             <div>
               <h2 className="modal-title">{isEditMode ? 'Editar venta' : 'Registrar nueva venta'}</h2>
-              <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
+              <span className="hide-on-mobile" style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
                 {isEditMode ? 'Modifica los detalles del pedido' : 'Descuento en tiempo real y abono a cuenta'}
               </span>
             </div>
@@ -461,8 +461,8 @@ export default function NewSaleModal({
             </div>
 
             {/* Footer con Resumen Total y Botón de Cobro */}
-            <div className="modal-footer">
-              <div style={{ marginRight: 'auto' }}>
+            <div className="modal-footer sale-modal-footer">
+              <div className="sale-modal-total">
                 <span style={{ fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--text-muted)', display: 'block' }}>
                   Total a Cobrar
                 </span>
@@ -488,7 +488,7 @@ export default function NewSaleModal({
               >
                 {isSubmitting ? 'Procesando...' : (
                   <>
-                    <span>{isEditMode ? 'Guardar cambios' : 'Confirmar venta'}</span>
+                    <span>{isEditMode ? 'Guardar cambios' : 'Confirmar'}</span>
                     <ArrowRight size={16} />
                   </>
                 )}

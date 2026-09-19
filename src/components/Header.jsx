@@ -65,7 +65,7 @@ export default function Header({ onOpenNewSale, onRefresh, activeTab, setActiveT
 
           {/* CTA New Sale Button */}
           <button 
-            className="btn-primary" 
+            className="btn-primary hide-on-mobile" 
             onClick={onOpenNewSale}
             style={{ padding: '8px 16px', fontSize: '0.82rem' }}
           >
